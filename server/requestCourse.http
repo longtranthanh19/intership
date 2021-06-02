@@ -1,0 +1,67 @@
+###
+POST http://localhost:5000/api/course
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDliNzU5NmNjMDY1ZTUxNzQ4MzBiNTYiLCJpYXQiOjE2MjA5NjQ4Nzd9.VsRPLY0baRMgZIbADIw8ip5UfXIGsCee4zAEfMxAB7E
+
+{
+  "courseCode": "MATH 2.2",
+  "courseName": "ANALYSIS& ALGEBRAIC STRUCTURES",
+  "lecturerID": "L-01",
+  "lecturerName": "Doan Nhat Quang",
+  "year": "2nd Year",
+  "program": "Bachelor",
+  "department":"ICT",
+  "creditPoints": "3 ECTS",
+      "timeCommiment": {
+          "noofHours": "36",
+          "lecture": "20",
+          "tutorial": "16",
+          "practical": "0"
+      },
+  "evaluation":{
+      "attendance": "5%",
+      "exercises": "5%",
+      "assignment": "0%",
+      "reports": "0%",
+      "midterm": "30%",
+      "final": "70%"
+    }
+}
+
+### 
+GET http://localhost:5000/api/course
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDliNzU5NmNjMDY1ZTUxNzQ4MzBiNTYiLCJpYXQiOjE2MjA5NjQ4Nzd9.VsRPLY0baRMgZIbADIw8ip5UfXIGsCee4zAEfMxAB7E
+
+###
+PUT http://localhost:5000/api/course/60a6a9576bfdb562a467a083
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDliNzU5NmNjMDY1ZTUxNzQ4MzBiNTYiLCJpYXQiOjE2MjA5NjQ4Nzd9.VsRPLY0baRMgZIbADIw8ip5UfXIGsCee4zAEfMxAB7E
+
+{
+  "courseCode": "MATH 2.2",
+  "courseName": "ANALYSIS& ALGEBRAIC STRUCTURES",
+  "lecturerID": "L-01",
+  "lecturerName": "Tran Thanh Long dzai",
+  "year": "2nd Year",
+  "program": "Bachelor",
+  "department":"ICT",
+  "creditPoints": "3 ECTS",
+      "timeCommiment": {
+          "noofHours": "36",
+          "lecture": "20",
+          "tutorial": "16",
+          "practical": "0"
+      },
+  "evaluation":{
+      "attendance": "5%",
+      "exercises": "5%",
+      "assignment": "0%",
+      "reports": "0%",
+      "midterm": "30%",
+      "final": "70%"
+    }
+}
+
+###
+DELETE http://localhost:5000/api/course/60a72c008c52861fe894cf98
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDliNzU5NmNjMDY1ZTUxNzQ4MzBiNTYiLCJpYXQiOjE2MjA5NjQ4Nzd9.VsRPLY0baRMgZIbADIw8ip5UfXIGsCee4zAEfMxAB7E

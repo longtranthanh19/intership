@@ -1,0 +1,41 @@
+###
+POST http://localhost:5000/api/lecturer
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDliNzU5NmNjMDY1ZTUxNzQ4MzBiNTYiLCJpYXQiOjE2MjA5NjQ4Nzd9.VsRPLY0baRMgZIbADIw8ip5UfXIGsCee4zAEfMxAB7E
+
+{
+  "lecturerID": "L-03",
+  "lecturerName": "Doan Nhat Quang",
+  "gender": "Male",
+  "dateOfBirth": "1/10/1970",
+  "degree":"PhD",
+  "email": "doan-nhat.quang@usth.edu.vn",
+  "phoneNumber": "012341231231",
+  "address":"Dao Tan",
+  "department": "ICT"
+}
+
+### 
+GET http://localhost:5000/api/lecturer
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDliNzU5NmNjMDY1ZTUxNzQ4MzBiNTYiLCJpYXQiOjE2MjA5NjQ4Nzd9.VsRPLY0baRMgZIbADIw8ip5UfXIGsCee4zAEfMxAB7E
+
+###
+PUT http://localhost:5000/api/lecturer/60a5e9a26645dd0d44061d15
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDliNzU5NmNjMDY1ZTUxNzQ4MzBiNTYiLCJpYXQiOjE2MjA5NjQ4Nzd9.VsRPLY0baRMgZIbADIw8ip5UfXIGsCee4zAEfMxAB7E
+
+{
+  "lecturerID": "L-03",
+  "lecturerName": "Tran Giang Son",
+  "gender": "Male",
+  "dateOfBirth": "1/10/1970",
+  "degree":"PhD",
+  "email": "doan-nhat.quang@usth.edu.vn",
+  "phoneNumber": "012341231231",
+  "address":"Dao Tan",
+  "department": "ICT"
+}
+
+###
+DELETE http://localhost:5000/api/lecturer/60a5e9a26645dd0d44061d15
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDliNzU5NmNjMDY1ZTUxNzQ4MzBiNTYiLCJpYXQiOjE2MjA5NjQ4Nzd9.VsRPLY0baRMgZIbADIw8ip5UfXIGsCee4zAEfMxAB7E

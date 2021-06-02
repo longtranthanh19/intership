@@ -1,0 +1,45 @@
+
+###
+POST http://localhost:5000/api/student
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDliNzU5NmNjMDY1ZTUxNzQ4MzBiNTYiLCJpYXQiOjE2MjA5NjQ4Nzd9.VsRPLY0baRMgZIbADIw8ip5UfXIGsCee4zAEfMxAB7E
+
+{
+  "studentID": "BI9-157",
+  "studentName": "Tran Thanh Long",
+  "gender": "Male",
+  "dateOfBirth": "19/10/2000",
+  "dateOfAdmission":"2018-2021",
+  "email": "longtt.bi9157@gmail.com",
+  "phoneNumber": "012341231231",
+  "address":"Dao Tan",
+  "department": "ICT",
+  "session":"Gen 9"
+}
+
+### 
+GET http://localhost:5000/api/student
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDliNzU5NmNjMDY1ZTUxNzQ4MzBiNTYiLCJpYXQiOjE2MjEyNDg3Mjl9.JmDCSJiYRjs4T3fb0LgzZqNVRN4CLLpMA0r7X6BqOX8
+
+### 
+PUT http://localhost:5000/api/student/60b663ef1efa475620de506c
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDliNzU5NmNjMDY1ZTUxNzQ4MzBiNTYiLCJpYXQiOjE2MjA5NjQ4Nzd9.VsRPLY0baRMgZIbADIw8ip5UfXIGsCee4zAEfMxAB7E
+
+{
+  "studentID": "BI9-157",
+  "studentName": "Tran Thanh Long 2",
+  "gender": "Male",
+  "dateOfBirth": "19/10/2000",
+  "dateOfAdmission":"2018-2021",
+  "email": "longtt.bi9157@gmail.com",
+  "phoneNumber": "012341231231",
+  "address":"Dao Tan",
+  "department": "ICT",
+  "session":"Gen 9"
+}
+
+###
+DELETE http://localhost:5000/api/student/60b663ef1efa475620de506c
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDliNzU5NmNjMDY1ZTUxNzQ4MzBiNTYiLCJpYXQiOjE2MjA5NjQ4Nzd9.VsRPLY0baRMgZIbADIw8ip5UfXIGsCee4zAEfMxAB7E
+

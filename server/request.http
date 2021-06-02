@@ -1,0 +1,48 @@
+POST http://localhost:5000/api/auth/register
+Content-Type: application/json
+
+{
+    "username": "admin12",
+    "password": "admin"
+}
+
+###
+POST http://localhost:5000/api/auth/login
+Content-Type: application/json
+
+{
+    "username": "admin12",
+    "password": "admin"
+}
+
+###
+POST http://localhost:5000/api/posts
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGIwYTQxMTFjMzQ2NDBlMjBiNmZkODMiLCJpYXQiOjE2MjIxOTU3MzN9.rllqYcqswZEtOsmuodX0OFTXJhj5C6N40nnuxW9TMmA
+
+{
+  "title": "test",
+  "description": "Reac11t2",
+  "url": "rea12312ct2.com",
+  "status": "TO LEARN"
+}
+
+### 
+GET http://localhost:5000/api/posts
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGIwYTQxMTFjMzQ2NDBlMjBiNmZkODMiLCJpYXQiOjE2MjIxOTU2Njd9.oQtiYJAFDkVLksWAcmvg4utIXMO06_pHLaG936HKFCY
+
+### 
+PUT http://localhost:5000/api/posts/60b0aa7e1c34640e20b6fd84
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGIwYTQxMTFjMzQ2NDBlMjBiNmZkODMiLCJpYXQiOjE2MjIxOTU3MzN9.rllqYcqswZEtOsmuodX0OFTXJhj5C6N40nnuxW9TMmA
+
+{
+  "title": "React Update 3 admin moi",
+  "description": "Reac11t Update 3 ",
+  "url": "rea12312ct.com Update 3",
+  "status": "LEARNING"
+}
+
+###
+DELETE http://localhost:5000/api/posts/60b7d5491e9b55052806a8b4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGIwYTQxMTFjMzQ2NDBlMjBiNmZkODMiLCJpYXQiOjE2MjIxOTU3MzN9.rllqYcqswZEtOsmuodX0OFTXJhj5C6N40nnuxW9TMmA

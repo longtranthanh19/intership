@@ -1,0 +1,183 @@
+.landing {
+  position: relative;
+  height: 100vh;
+}
+
+.dark-overlay {
+  background-color: rgba(224, 231, 243, 0.5);
+  height: 100%;
+}
+
+.nav-login {
+  background-color: white;
+  padding: 10px;
+}
+
+.navbar {
+  font-weight: 400;
+}
+
+.container {
+  max-width: 1555px;
+}
+.mr-2 {
+  margin: 10px;
+}
+
+.form-group {
+  padding: 15px;
+}
+
+.landing-inner {
+  height: 60%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.landing-inner h1 {
+  padding-bottom: 20px;
+}
+
+.login-title {
+  color: black;
+  font-size: 4em;
+  line-height: 1;
+  font-family: "Odibee Sans", cursive;
+}
+
+.login-label {
+  font-size: 1em;
+  font-weight: bold;
+}
+
+.btn-login {
+  border-radius: 10px;
+}
+
+.btn-logout{
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.landing-inner form {
+  width: 40%;
+  height: auto;
+  border-radius: 10px;
+  border: 3px solid rgba(224, 231, 243, 0.5);
+  background-color: rgba(224, 231, 243, 0.5);
+  padding: 20px;
+}
+
+.landing-inner h1,
+.landing-inner h4,
+.landing-inner p {
+  color: white;
+}
+
+.spinner-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+}
+
+/* Main Content */
+.main-title{
+  font-weight: bold;
+}
+
+.main-content-title{
+  font-weight: bold;
+}
+
+/* Post button */
+.post-button {
+  padding-top: 0;
+  background: transparent;
+  border: none;
+}
+
+.post-title {
+  width: 100%;
+}
+
+.post-button:hover {
+  background: transparent;
+}
+
+a.post-button.btn:focus,
+a.post-button.btn:active {
+  outline: none;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+button.post-button.btn:focus,
+button.post-button.btn:active {
+  outline: none;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+/* Floating add button */
+.btn-floating {
+  position: fixed;
+  right: 3rem;
+  bottom: 3rem;
+  background: transparent;
+  border: none;
+}
+
+.btn-floating:hover {
+  background: transparent;
+}
+
+.btn-floating:focus,
+.btn-floating:active {
+  outline: none;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+/* Add new post tooltip */
+.tooltip {
+  background: transparent;
+}
+
+.tooltip .arrow::before {
+  border-left-color: #78c2ad;
+}
+
+.tooltip-inner {
+  background: #78c2ad;
+}
+
+/* Post border thicker */
+.border-success,
+.border-warning,
+.border-danger {
+  border-width: 2px;
+}
+
+/* Post title */
+.post-title {
+  margin-bottom: 0.5rem;
+}
+
+/* Search */
+.search-form {
+  padding: 10px;
+  width: 30%;
+}
+
+.search-box {
+  padding: 20px;
+}
