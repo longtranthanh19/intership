@@ -17,7 +17,7 @@ const Student = () => {
   // Contexts
   const {
     authState: {
-      user: { username },
+      user: { username, role },
     },
   } = useContext(AuthContext);
 
@@ -29,6 +29,7 @@ const Student = () => {
     setStudentShowToast,
   } = useContext(StudentContext);
 
+  console.log(students);
   // Start: Get all posts
   useEffect(() => getStudents(), []);
 
@@ -40,6 +41,9 @@ const Student = () => {
         <Spinner animation="border" variant="info" />
       </div>
     );
+  } else if (role !== "Staff" && role !== "Lecturer") {
+    console.log(role);
+    body = <div> NOT PERMISSION</div>;
   } else if (students.length === 0) {
     body = (
       <>
@@ -71,29 +75,29 @@ const Student = () => {
   }
 
   return (
-      <Container>
-        {body}
-        <AddStudentModal />
-        {student !== null && <UpdateStudentModal />}
-        <DeleteStudentModal />
-        {/* After post is added, show toast */}
-        <Toast
-          show={show}
-          style={{ position: "fixed", top: "7%", right: "10px" }}
-          className={`bg-${type} text-white`}
-          onClose={setStudentShowToast.bind(this, {
-            show: false,
-            message: "",
-            type: null,
-          })}
-          delay={4000}
-          autohide
-        >
-          <Toast.Body>
-            <strong>{message}</strong>
-          </Toast.Body>
-        </Toast>
-      </Container>
+    <Container>
+      {body}
+      <AddStudentModal />
+      {student !== null && <UpdateStudentModal />}
+      <DeleteStudentModal />
+      {/* After post is added, show toast */}
+      <Toast
+        show={show}
+        style={{ position: "fixed", top: "7%", right: "10px" }}
+        className={`bg-${type} text-white`}
+        onClose={setStudentShowToast.bind(this, {
+          show: false,
+          message: "",
+          type: null,
+        })}
+        delay={4000}
+        autohide
+      >
+        <Toast.Body>
+          <strong>{message}</strong>
+        </Toast.Body>
+      </Toast>
+    </Container>
   );
 };
 

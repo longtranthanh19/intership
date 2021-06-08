@@ -49,14 +49,18 @@ const StudentContextProvider = ({ children }) => {
   };
 
   // Add Student
-  const addStudent = async newStudent => {
+  const addStudent = async (newStudent) => {
     try {
       const response = await axios.post(`${apiUrl}/student`, newStudent);
       if (response.data.success) {
+        // window.location.reload();
+        console.log(response.data.success);
         dispatch({ type: ADD_STUDENT, payload: response.data.student });
+        console.log(response.data)
         return response.data;
       }
     } catch (error) {
+      console.log(error);
       return error.response.data
         ? error.response.data
         : { success: false, message: "Server error" };
@@ -64,7 +68,7 @@ const StudentContextProvider = ({ children }) => {
   };
 
   // Delete Student
-  const deleteStudent = async deletedStudent => {
+  const deleteStudent = async (deletedStudent) => {
     try {
       const response = await axios.delete(
         `${apiUrl}/student/${deletedStudent._id}`,
@@ -82,7 +86,7 @@ const StudentContextProvider = ({ children }) => {
   };
 
   // Find post when user is updating post
-  const findStudent = studentId => {
+  const findStudent = (studentId) => {
     const student = studentState.students.find(
       (student) => student._id === studentId
     );
@@ -90,7 +94,7 @@ const StudentContextProvider = ({ children }) => {
   };
 
   // Update post
-  const updateStudent = async updatedStudent => {
+  const updateStudent = async (updatedStudent) => {
     try {
       const response = await axios.put(
         `${apiUrl}/student/${updatedStudent._id}`,

@@ -9,14 +9,14 @@ import Tooltip from "react-bootstrap/Tooltip";
 import Form from "react-bootstrap/Form";
 import FormControl from "react-bootstrap/FormControl";
 
-const StudentList = ({ SingleStudent, setShowAddStudentModal, students }) => {
+const UserList = ({ SingleUser, setShowAddUserModal, users }) => {
   // Search
   const [searchText, setSearchText] = useState("");
-  const [data, setData] = useState(students);
+  const [data, setData] = useState(users);
 
   useEffect(() => {
-    console.log(students);
-  }, [students]);
+    console.log(users);
+  }, [users]);
 
   const handleChange = (value) => {
     setSearchText(value);
@@ -26,9 +26,9 @@ const StudentList = ({ SingleStudent, setShowAddStudentModal, students }) => {
   const filterData = (value) => {
     const lowerCaseValue = value.toLowerCase().trim();
     if (!lowerCaseValue) {
-      setData(students);
+      setData(users);
     } else {
-      const filteredData = students.filter((item) => {
+      const filteredData = users.filter((item) => {
         return Object.keys(item).some((key) => {
           return item[key].toString().toLowerCase().includes(lowerCaseValue);
         });
@@ -43,7 +43,7 @@ const StudentList = ({ SingleStudent, setShowAddStudentModal, students }) => {
         className="main-title d-flex justify-content-around"
         style={{ padding: "10px" }}
       >
-        USTH STUDENT
+        USTH USER
       </h1>
       <Form className="search-box d-flex justify-content-end">
         <FormControl
@@ -58,14 +58,14 @@ const StudentList = ({ SingleStudent, setShowAddStudentModal, students }) => {
       </Form>
 
       <Row className="row-cols-1 row-cols-md-3 g-4 mx-auto mt-3">
-        {data.map((student) => (
-          <Col key={student._id} className="my-2">
-            <SingleStudent student={student} />
+        {data.map((user) => (
+          <Col key={user._id} className="my-2">
+            <SingleUser user={user} />
           </Col>
         ))}
         {data.length === 0 && (
           <h4 className="d-flex justify-content-around">
-            No Student Found To Display!
+            No User Found To Display!
           </h4>
         )}
       </Row>
@@ -73,11 +73,11 @@ const StudentList = ({ SingleStudent, setShowAddStudentModal, students }) => {
       {/* Open Add Post Modal */}
       <OverlayTrigger
         placement="left"
-        overlay={<Tooltip>Add New Student !!</Tooltip>}
+        overlay={<Tooltip>Add New User !!</Tooltip>}
       >
         <Button
           className="btn-floating"
-          onClick={setShowAddStudentModal.bind(this, true)}
+          onClick={setShowAddUserModal.bind(this, true)}
         >
           <img src={addIcon} alt="add-post" width="60" height="60" />
         </Button>
@@ -86,4 +86,4 @@ const StudentList = ({ SingleStudent, setShowAddStudentModal, students }) => {
   );
 };
 
-export default StudentList;
+export default UserList;

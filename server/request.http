@@ -1,9 +1,12 @@
+###
 POST http://localhost:5000/api/auth/register
 Content-Type: application/json
 
 {
-    "username": "admin12",
-    "password": "admin"
+    "username": "lecturer",
+    "password": "lecturer",
+    "userName": "Long",
+    "role": "Lecturer"
 }
 
 ###
@@ -11,9 +14,29 @@ POST http://localhost:5000/api/auth/login
 Content-Type: application/json
 
 {
-    "username": "admin12",
-    "password": "admin"
+    "username": "student",
+    "password": "student"
 }
+
+### 
+GET http://localhost:5000/api/auth
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGJmMzdiOTAyOTY1NTQ4NTgyMzllODMiLCJpYXQiOjE2MjMxNDQ0NjN9.UFLra4OGT0o3Vr2B9HOisKITK67uwdmwnHD7BgPPLLY
+
+### 
+PUT http://localhost:5000/api/auth/60bf1bb8b92ae65514dc1bc6
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGJmMWJiOGI5MmFlNjU1MTRkYzFiYzYiLCJyb2xlIjoiU3RhZmYiLCJpYXQiOjE2MjMxMzc2OTR9.VIOlav5UpbTsbjJzSMVBOfk6iCjWtyY3PT4KR4hzU9g
+
+{
+    "username": "admin",
+    "password": "admin",
+    "role": "Lecturer"
+}
+
+###
+DELETE http://localhost:5000/api/auth/60bf189d24d03165b4453f06
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGIwYTQxMTFjMzQ2NDBlMjBiNmZkODMiLCJpYXQiOjE2MjIxOTU3MzN9.rllqYcqswZEtOsmuodX0OFTXJhj5C6N40nnuxW9TMmA
+
 
 ###
 POST http://localhost:5000/api/posts
@@ -26,6 +49,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGIwY
   "url": "rea12312ct2.com",
   "status": "TO LEARN"
 }
+
 
 ### 
 GET http://localhost:5000/api/posts

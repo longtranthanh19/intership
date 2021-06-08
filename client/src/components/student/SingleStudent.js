@@ -54,7 +54,7 @@ const SingleStudent = ({
         <span className="main-content-title">Phone: </span> {phoneNumber}
       </Card.Text>
       <Card.Text>
-        <span className="main-content-title">Address </span> {address}
+        <span className="main-content-title">Address: </span> {address}
       </Card.Text>
     </Card.Body>
   </Card>

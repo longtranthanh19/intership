@@ -19,7 +19,15 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDliN
 
 ### 
 GET http://localhost:5000/api/student
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDliNzU5NmNjMDY1ZTUxNzQ4MzBiNTYiLCJpYXQiOjE2MjEyNDg3Mjl9.JmDCSJiYRjs4T3fb0LgzZqNVRN4CLLpMA0r7X6BqOX8
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGJmNGFkNWI5NjliYTNlZTgwNWViZGEiLCJyb2xlIjoiU3R1ZGVudCIsImlhdCI6MTYyMzE2MjIxNX0.JTNoseOIvWQYVbOVma8BbIEbXonequf72_27jbrwQa4
+### 
+GET http://localhost:5000/api/student
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGJmNDhkMTg5ZDllZDQ1NzgxMmExNTQiLCJyb2xlIjoiU3RhZmYiLCJpYXQiOjE2MjMxNjIwMjF9.8Mfj8qD1pWHGQo6ArxEu4BNo8UctQJPZntdlSSLzkVM
+
+
+### 
+GET http://localhost:5000/api/student
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGJlMjVmMGY0MmRkNjFmOTQzZjQyNTEiLCJyb2xlIjoiU3R1ZGVudCIsImlhdCI6MTYyMzA4MTM1NH0.Z9tgtbpcA0bZmetC3DlekJm5J0FJJxRXeNqPQ4qKhvI
 
 ### 
 PUT http://localhost:5000/api/student/60b663ef1efa475620de506c

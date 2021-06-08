@@ -2,33 +2,33 @@ import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { useContext, useState, useEffect } from "react";
-import { PostContext } from "../../contexts/PostContext"
+import { UserContext } from "../../contexts/UserContext";
 
-const DeletePostModal = ({ _id }) => {
+const DeleteUserModal = ({ _id }) => {
   // Contexts
   const {
-    postState: { post },
-    showDeletePostModal,
-    setShowDeletePostModal,
-    deletePost,
-    setShowToast,
-  } = useContext(PostContext);
+    userState: { user },
+    showDeleteUserModal,
+    setShowDeleteUserModal,
+    deleteUser,
+    setUserShowToast,
+  } = useContext(UserContext);
 
   // State
-  const [deletedPost, setDeletedPost] = useState(post);
+  const [deletedUser, setDeletedUser] = useState(user);
 
-  useEffect(() => setDeletedPost(post), [post]);
+  useEffect(() => setDeletedUser(user), [user]);
 
   const closeDialog = () => {
-    setDeletedPost(post);
-    setShowDeletePostModal(false);
+    setDeletedUser(user);
+    setShowDeleteUserModal(false);
   };
 
   const onSubmit = async (event) => {
     event.preventDefault();
-    const { success, message } = await deletePost(deletedPost);
-    setShowDeletePostModal(false);
-    setShowToast({
+    const { success, message } = await deleteUser(deletedUser);
+    setShowDeleteUserModal(false);
+    setUserShowToast({
       show: true,
       message,
       type: success ? "success" : "danger",
@@ -36,7 +36,7 @@ const DeletePostModal = ({ _id }) => {
   };
 
   return (
-    <Modal show={showDeletePostModal}>
+    <Modal show={showDeleteUserModal}>
       <Modal.Header>
         <Modal.Title>Are You Sure To Delete This ?</Modal.Title>
       </Modal.Header>
@@ -48,7 +48,7 @@ const DeletePostModal = ({ _id }) => {
           <Button
             variant="primary"
             type="submit"
-            // onClick={() => window.location.reload()}
+            onClick={() => window.location.reload()}
           >
             Delete
           </Button>
@@ -58,4 +58,4 @@ const DeletePostModal = ({ _id }) => {
   );
 };
 
-export default DeletePostModal;
+export default DeleteUserModal;

@@ -6,8 +6,12 @@ import { StudentContext } from "../../contexts/StudentContext";
 
 const AddStudentModal = () => {
   // Contexts
-  const { showAddStudentModal, setShowAddStudentModal, addStudent, setStudentShowToast } =
-    useContext(StudentContext);
+  const {
+    showAddStudentModal,
+    setShowAddStudentModal,
+    addStudent,
+    setStudentShowToast,
+  } = useContext(StudentContext);
 
   // State
   const [newStudent, setNewStudent] = useState({
@@ -43,12 +47,15 @@ const AddStudentModal = () => {
     resetAddStudentData();
   };
 
-
   const onSubmit = async (event) => {
     event.preventDefault();
     const { success, message } = await addStudent(newStudent);
     resetAddStudentData();
-    setStudentShowToast({ show: true, message, type: success ? "success" : "danger" });
+    setStudentShowToast({
+      show: true,
+      message,
+      type: success ? "success" : "danger",
+    });
   };
 
   const resetAddStudentData = () => {
@@ -246,7 +253,11 @@ const AddStudentModal = () => {
           <Button variant="secondary" onClick={closeDialog}>
             Cancel
           </Button>
-          <Button variant="primary" type="submit" onClick={() => window.location.reload()}>
+          <Button
+            variant="primary"
+            type="submit"
+            // onClick={() => window.location.reload()}
+          >
             Add Student
           </Button>
         </Modal.Footer>

@@ -1,6 +1,10 @@
 const express = require("express");
 const router = express.Router();
 const verifyToken = require("../middleware/auth");
+const isStaff = require("../middleware/isStaff");
+const isBoth = require("../middleware/isBoth");
+const isLecturer = require("../middleware/isLecturer");
+const isStudent = require("../middleware/isStudent");
 
 const Student = require("../models/Student");
 
@@ -8,7 +12,7 @@ const Student = require("../models/Student");
 // @desc Get Student List
 // @access Private
 
-router.get("/", verifyToken, async (req, res) => {
+router.get("/", verifyToken, isBoth , async (req, res) => {
   try {
     const students = await Student.find();
     res.json({ success: true, students });
@@ -43,6 +47,12 @@ router.post("/", verifyToken, async (req, res) => {
       .json({ success: false, message: "StudentID is required" });
 
   try {
+    const studentid = await Student.findOne({ studentID });
+    if (studentid)
+      return res
+        .status(400)
+        .json({ success: false, message: "StudentID Already Taken" });
+
     const newStudent = new Student({
       studentID,
       studentName,
@@ -58,9 +68,7 @@ router.post("/", verifyToken, async (req, res) => {
 
     await newStudent.save();
 
-    res
-    .status(500)
-    .json({
+    res.status(500).json({
       success: true,
       message: "Add Student Successful !!",
       student: newStudent,
@@ -74,7 +82,7 @@ router.post("/", verifyToken, async (req, res) => {
 // @route PUT api/students
 // @desc Update Student Info
 // @access Private
-router.put("/:id", verifyToken, async (req, res) => {
+router.put("/:id", verifyToken, isStaff, async (req, res) => {
   const {
     studentID,
     studentName,
@@ -151,7 +159,11 @@ router.delete("/:id", verifyToken, async (req, res) => {
         message: "Student not found or user not authorized",
       });
 
-    res.json({ success: true,  message: "Delete Successful!", student: deletedStudent });
+    res.json({
+      success: true,
+      message: "Delete Successful!",
+      student: deletedStudent,
+    });
   } catch (error) {
     console.log(error);
     res.status(500).json({ success: false, message: "Internal server error" });

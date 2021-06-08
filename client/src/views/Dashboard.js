@@ -26,7 +26,7 @@ const Dashboard = () => {
   // Contexts
   const {
     authState: {
-      user: { username },
+      user: { userName },
     },
   } = useContext(AuthContext);
 
@@ -52,25 +52,101 @@ const Dashboard = () => {
   } else if (posts.length === 0) {
     body = (
       <>
-        <h1
-          className="main-title d-flex justify-content-around"
-          style={{ padding: "10px" }}
-        >
-          DASHBOARD
-        </h1>
-        <Card className="text-center mx-5 my-5">
-          <Card.Header as="h1">Hi {username}</Card.Header>
-          <Card.Body>
-            <Card.Title>Welcome to USTH Result Management</Card.Title>
-            <Card.Text>Click the button below to add your todos</Card.Text>
-            <Button
-              variant="primary"
-              onClick={setShowAddPostModal.bind(this, true)}
-            >
-              Add Tasks
-            </Button>
-          </Card.Body>
-        </Card>
+        <Container>
+          <h1
+            className="main-title d-flex justify-content-around"
+            style={{ padding: "10px" }}
+          >
+            DASHBOARD
+          </h1>
+          <Card className="text-center mx-5 my-5">
+            <Card.Header as="h1">Hi {userName}</Card.Header>
+            <Card.Body>
+              <Card.Title>Welcome to USTH Result Management</Card.Title>
+              <Card.Text>Click the button below to add your todos</Card.Text>
+              <Button
+                variant="primary"
+                onClick={setShowAddPostModal.bind(this, true)}
+              >
+                Add Tasks
+              </Button>
+            </Card.Body>
+          </Card>
+
+          <Row className="row-information-dashboard">
+            <Col>
+              <Card style={{ width: "20rem" }}>
+                <Card.Img
+                  variant="top"
+                  src={studentImg}
+                  width="120"
+                  height="190"
+                />
+                <Card.Body>
+                  <Card.Title>Student</Card.Title>
+                  <Card.Text>Some information of USTH Students</Card.Text>
+                  <Button variant="primary" href="/student">
+                    Student
+                  </Button>
+                </Card.Body>
+              </Card>
+            </Col>
+
+            <Col>
+              <Card style={{ width: "20rem" }}>
+                <Card.Img
+                  variant="top"
+                  src={lecturerImg}
+                  width="120"
+                  height="190"
+                />
+                <Card.Body>
+                  <Card.Title>Lecturer</Card.Title>
+                  <Card.Text>Some information of USTH Lecturers</Card.Text>
+                  <Button variant="primary" href="/lecturer">
+                    Lecturer
+                  </Button>
+                </Card.Body>
+              </Card>
+            </Col>
+
+            <Col>
+              <Card style={{ width: "20rem" }}>
+                <Card.Img
+                  variant="top"
+                  src={courseImg}
+                  width="120"
+                  height="190"
+                />
+                <Card.Body>
+                  <Card.Title>Course</Card.Title>
+                  <Card.Text>Some information of USTH Courses</Card.Text>
+                  <Button variant="primary" href="/course">
+                    Course
+                  </Button>
+                </Card.Body>
+              </Card>
+            </Col>
+
+            <Col>
+              <Card style={{ width: "20rem" }}>
+                <Card.Img
+                  variant="top"
+                  src={resultImg}
+                  width="120"
+                  height="190"
+                />
+                <Card.Body>
+                  <Card.Title>Result</Card.Title>
+                  <Card.Text>Some information of USTH Result</Card.Text>
+                  <Button variant="primary" href="/result">
+                    Result
+                  </Button>
+                </Card.Body>
+              </Card>
+            </Col>
+          </Row>
+        </Container>
       </>
     );
   } else {

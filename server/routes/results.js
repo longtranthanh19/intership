@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const verifyToken = require("../middleware/auth");
+const isLecturer = require("../middleware/isLecturer")
 
 const Result = require("../models/Result");
 
@@ -92,7 +93,7 @@ router.get("/", verifyToken, async (req, res) => {
 // @route PUT api/lecturer
 // @desc Update Lecturer Info
 // @access Private
-router.put("/:id", verifyToken, async (req, res) => {
+router.put("/:id", verifyToken, isLecturer, async (req, res) => {
   const {
     studentID,
     studentName,
@@ -173,7 +174,7 @@ router.put("/:id", verifyToken, async (req, res) => {
 // @route DELETE api/posts
 // @desc Delete post
 // @access Private
-router.delete("/:id", verifyToken, async (req, res) => {
+router.delete("/:id", verifyToken, isLecturer, async (req, res) => {
   try {
     const ResultDeleteCondition = { _id: req.params.id };
     const deletedResult = await Result.findOneAndDelete(ResultDeleteCondition);

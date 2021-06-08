@@ -86,7 +86,11 @@ const AddPostModal = () => {
           <Button variant="secondary" onClick={closeDialog}>
             Cancel
           </Button>
-          <Button variant="primary" type="submit" onClick={() => window.location.reload()}>
+          <Button
+            variant="primary"
+            type="submit"
+            // onClick={() => window.location.reload()}
+          >
             LearnIt!
           </Button>
         </Modal.Footer>

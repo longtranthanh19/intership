@@ -10,7 +10,9 @@ const Post = require("../models/Post");
 
 router.get("/", verifyToken, async (req, res) => {
   try {
-    const posts = await Post.find();
+    const posts = await Post.find({ user: req.userId }).populate("user", [
+      "username",
+    ]);
     res.json({ success: true, posts });
   } catch (error) {
     console.log(error);
@@ -36,6 +38,7 @@ router.post("/", verifyToken, async (req, res) => {
       title,
       description,
       status: status || "TODO",
+      user: req.userId,
     });
 
     await newPost.save();
@@ -53,7 +56,7 @@ router.post("/", verifyToken, async (req, res) => {
 // @desc Update post
 // @access Private
 router.put("/:id", verifyToken, async (req, res) => {
-  const { title, description, url, status } = req.body;
+  const { title, description, status } = req.body;
 
   // Simple validation
   if (!title)

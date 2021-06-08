@@ -17,7 +17,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDliN
 
 ### 
 GET http://localhost:5000/api/lecturer
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDliNzU5NmNjMDY1ZTUxNzQ4MzBiNTYiLCJpYXQiOjE2MjA5NjQ4Nzd9.VsRPLY0baRMgZIbADIw8ip5UfXIGsCee4zAEfMxAB7E
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGJmNDQ3OTBlOWU3MTYwYjg5N2U4MjIiLCJpYXQiOjE2MjMxNDg2NzF9.UXbLUYqN9kLqOD8u5LO_u50afuoT-vB6kMQJWRDlKZ4
 
 ###
 PUT http://localhost:5000/api/lecturer/60a5e9a26645dd0d44061d15

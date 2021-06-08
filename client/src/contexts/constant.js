@@ -14,6 +14,14 @@ export const DELETE_POST = "DELETE_POST";
 export const UPDATE_POST = "UPDATE_POST";
 export const FIND_POST = "FIND_POST";
 
+// USER 
+export const USERS_LOADED_SUCCESS = "USERS_LOADED_SUCCESS";
+export const USERS_LOADED_FAILED = "USERS_LOADED_FAILED";
+export const ADD_USER = "ADD_USER";
+export const DELETE_USER = "DELETE_USER";
+export const UPDATE_USER = "UPDATE_USER";
+export const FIND_USER = "FIND_USER";
+
 // STUDENTS
 
 export const STUDENTS_LOADED_SUCCESS = "STUDENTS_LOADED_SUCCESS";

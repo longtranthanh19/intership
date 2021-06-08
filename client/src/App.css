@@ -87,6 +87,9 @@
 }
 
 /* Main Content */
+.col{
+  padding: 10px;
+}
 .main-title{
   font-weight: bold;
 }
@@ -103,7 +106,7 @@
 }
 
 .post-title {
-  width: 100%;
+  width: 150%;
 }
 
 .post-button:hover {

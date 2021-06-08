@@ -1,11 +1,11 @@
-import { LecturerContext } from "../contexts/LecturerContext";
+import { UserContext } from "../contexts/UserContext";
 import { AuthContext } from "../contexts/AuthContext";
 import { useContext, useEffect, useState } from "react";
-import SingleLecturer from "../components/lecturer/SingleLecturer";
-import UpdateLecturerModal from "../components/lecturer/UpdateLecturerModal";
-import AddLecturerModal from "../components/lecturer/AddLecturerModal";
-import LecturerList from "../components/lecturer/LecturerList";
-import DeleteLecturerModal from "../components/lecturer/DeleteLecturerModal";
+import SingleUser from "../components/user/SingleUser";
+import UpdateUserModal from "../components/user/UpdateUserModal";
+import AddUserModal from "../components/user/AddUserModal";
+import StudentList from "../components/user/UserList";
+import DeleteUserModal from "../components/user/DeleteUserModal";
 
 import Spinner from "react-bootstrap/Spinner";
 import Card from "react-bootstrap/Card";
@@ -13,7 +13,7 @@ import Button from "react-bootstrap/Button";
 import Toast from "react-bootstrap/Toast";
 import Container from "react-bootstrap/Container";
 
-const Lecturer = () => {
+const User = () => {
   // Contexts
   const {
     authState: {
@@ -22,18 +22,20 @@ const Lecturer = () => {
   } = useContext(AuthContext);
 
   const {
-    lecturerState: { lecturer, lecturers, lecturersLoading },
-    getLecturers,
-    setShowAddLecturerModal,
-    lecturerShowToast: { show, message, type },
-    setLecturerShowToast,
-  } = useContext(LecturerContext);
+    userState: { user, users, usersLoading },
+    getUsers,
+    setShowAddUserModal,
+    userShowToast: { show, message, type },
+    setUserShowToast,
+  } = useContext(UserContext);
 
+  console.log(users);
   // Start: Get all posts
-  useEffect(() => getLecturers(), []);
+  useEffect(() => getUsers(), []);
 
   let body = null;
-  if (lecturersLoading) {
+
+  if (usersLoading) {
     body = (
       <div className="spinner-container">
         <Spinner animation="border" variant="info" />
@@ -41,18 +43,18 @@ const Lecturer = () => {
     );
   } else if (role !== "Staff" && role !== "Lecturer") {
     console.log(role);
-    body = <div> NOT PERMISSION </div>;
-  } else if (lecturers.length === 0) {
+    body = <div> NOT PERMISSION</div>;
+  } else if (users.length === 0) {
     body = (
       <>
         <Card className="text-center mx-5 my-5">
-          <Card.Header as="h1">Hi {username} </Card.Header>
+          <Card.Header as="h1">Hi {username}</Card.Header>
           <Card.Body>
             <Card.Title>Welcome to USTH Management System</Card.Title>
-            <Card.Text>Click the button below to add new Lecturer !!</Card.Text>
+            <Card.Text>Click the button below to add new Student !!</Card.Text>
             <Button
               variant="primary"
-              onClick={setShowAddLecturerModal.bind(this, true)}
+              onClick={setShowAddUserModal.bind(this, true)}
             >
               Add
             </Button>
@@ -63,10 +65,10 @@ const Lecturer = () => {
   } else {
     body = (
       <>
-        <LecturerList
-          SingleLecturer={SingleLecturer}
-          setShowAddLecturerModal={setShowAddLecturerModal}
-          lecturers={lecturers}
+        <StudentList
+          SingleUser={SingleUser}
+          setShowAddUserModal={setShowAddUserModal}
+          users={users}
         />
       </>
     );
@@ -75,15 +77,15 @@ const Lecturer = () => {
   return (
     <Container>
       {body}
-      <AddLecturerModal />
-      {lecturer !== null && <UpdateLecturerModal />}
-      <DeleteLecturerModal />
+      <AddUserModal />
+      {user !== null && <UpdateUserModal />}
+      <DeleteUserModal />
       {/* After post is added, show toast */}
       <Toast
         show={show}
         style={{ position: "fixed", top: "7%", right: "10px" }}
         className={`bg-${type} text-white`}
-        onClose={setLecturerShowToast.bind(this, {
+        onClose={setUserShowToast.bind(this, {
           show: false,
           message: "",
           type: null,
@@ -99,4 +101,4 @@ const Lecturer = () => {
   );
 };
 
-export default Lecturer;
+export default User;

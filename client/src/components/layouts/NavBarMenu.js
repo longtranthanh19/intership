@@ -11,7 +11,7 @@ import { useContext } from "react";
 const NavBarMenu = () => {
   const {
     authState: {
-      user: { username },
+      user: { userName },
     },
     logoutUser,
   } = useContext(AuthContext);
@@ -57,7 +57,7 @@ const NavBarMenu = () => {
             </Nav.Link>
             <Nav.Link
               className="font-weight-bolder text-black"
-              to="/Course"
+              to="/course"
               as={Link}
             >
               Course
@@ -69,11 +69,18 @@ const NavBarMenu = () => {
             >
               Result
             </Nav.Link>
+            <Nav.Link
+              className="font-weight-bolder text-black"
+              to="/user"
+              as={Link}
+            >
+              User
+            </Nav.Link>
           </Nav>
 
           <Nav className="justify-content-end">
             <Nav.Link className="font-weight-bolder text-black" disabled>
-              Welcome, {username}
+              Welcome, {userName}
             </Nav.Link>
             <Button
               variant="warning"

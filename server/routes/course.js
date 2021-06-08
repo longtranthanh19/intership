@@ -1,14 +1,14 @@
 const express = require("express");
 const router = express.Router();
 const verifyToken = require("../middleware/auth");
-
+const isStaff = require("../middleware/isStaff");
 const Course = require("../models/Course");
 
 // @route POST api/createCourse
 // @desc Create Course
 // @access Private
 
-router.post("/", verifyToken, async (req, res) => {
+router.post("/", verifyToken, isStaff, async (req, res) => {
   const {
     courseCode,
     courseName,
@@ -90,7 +90,7 @@ router.get("/", verifyToken, async (req, res) => {
 // @route PUT api/course
 // @desc Update Course Info
 // @access Private
-router.put("/:id", verifyToken, async (req, res) => {
+router.put("/:id", verifyToken, isStaff, async (req, res) => {
   const {
     courseCode,
     courseName,

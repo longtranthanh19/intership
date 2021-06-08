@@ -66,7 +66,7 @@ const AddCourseModal = () => {
   const onSubmit = async (event) => {
     event.preventDefault();
     const { success, message } = await addCourse(newCourse);
-    resetAddCourseData();
+    // resetAddCourseData();
     setCourseShowToast({
       show: true,
       message,

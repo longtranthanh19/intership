@@ -356,7 +356,7 @@ const UpdateCourseModal = () => {
           <Button
             variant="primary"
             type="submit"
-            onClick={() => window.location.reload()}
+            // onClick={() => window.location.reload()}
           >
             Update
           </Button>
