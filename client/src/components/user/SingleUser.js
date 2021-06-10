@@ -3,7 +3,9 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import ActionButtons from "./ActionButtons";
 
-const SingleUser = ({ user: { _id, username, password, userName, role } }) => (
+const SingleUser = ({
+  user: { _id, id, username, password, userName, role },
+}) => (
   <Card className="shadow">
     <Card.Body>
       <Card.Title>
@@ -16,6 +18,9 @@ const SingleUser = ({ user: { _id, username, password, userName, role } }) => (
           </Col>
         </Row>
       </Card.Title>
+      <Card.Text>
+        <span className="main-content-title">ID : </span> {id}
+      </Card.Text>
       <Card.Text>
         <span className="main-content-title">Username : </span> {username}
       </Card.Text>

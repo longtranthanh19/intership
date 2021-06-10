@@ -4,9 +4,13 @@ import Container from "react-bootstrap/Container";
 import usthLogo from "../../assets/logo_moi-eng.png";
 import logoutIcon from "../../assets/logout.svg";
 import Button from "react-bootstrap/Button";
+import Dropdown from "react-bootstrap/Dropdown";
+import DropdownButton from "react-bootstrap/DropdownButton";
+import NavDropdown from "react-bootstrap/NavDropdown";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
 import { useContext } from "react";
+import NavbarBrand from "react-bootstrap/esm/NavbarBrand";
 
 const NavBarMenu = () => {
   const {
@@ -79,24 +83,19 @@ const NavBarMenu = () => {
           </Nav>
 
           <Nav className="justify-content-end">
-            <Nav.Link className="font-weight-bolder text-black" disabled>
-              Welcome, {userName}
-            </Nav.Link>
-            <Button
-              variant="warning"
-              className="btn-logout text-white"
-              size="sm"
-              onClick={logout}
-            >
-              <img
-                src={logoutIcon}
-                alt="logoutIcon"
-                width="16"
-                height="16"
-                className="mr-2"
-              />
-              Logout
-            </Button>
+            <Container>
+              <NavDropdown id="nav-dropdown-dark-example" title="Welcome to USTH" menuVariant="dark">
+                <NavDropdown.Item disabled>
+                  Hi, {userName}
+                </NavDropdown.Item>
+                <NavDropdown.Item href="/profile">Profile</NavDropdown.Item>
+                <NavDropdown.Item href="/resultprofile">Result</NavDropdown.Item>
+                <NavDropdown.Divider />
+                <NavDropdown.Item href="#action/3.4" onClick={logout}>
+                  Logout
+                </NavDropdown.Item>
+              </NavDropdown>
+            </Container>
           </Nav>
         </Navbar.Collapse>
       </Container>

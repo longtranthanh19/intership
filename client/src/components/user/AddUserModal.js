@@ -11,13 +11,14 @@ const AddUserModal = () => {
 
   // State
   const [newUser, setNewUser] = useState({
+    id: "",
     username: "",
     password: "",
     userName: "",
     role: "",
   });
 
-  const { username, password, role, userName } = newUser;
+  const { id, username, password, role, userName } = newUser;
 
   const onChangeNewUserForm = (event) =>
     setNewUser({ ...newUser, [event.target.name]: event.target.value });
@@ -39,6 +40,7 @@ const AddUserModal = () => {
 
   const resetAddUserData = () => {
     setNewUser({
+      id: "",
       username: "",
       password: "",
       userName: "",
@@ -58,11 +60,26 @@ const AddUserModal = () => {
 
           <Form.Group>
             <Form.Text id="title-help" muted>
+              User ID
+            </Form.Text>
+            <Form.Control
+              type="text"
+              placeholder="Enter User ID"
+              name="id"
+              required
+              aria-describedby="title-help"
+              value={id}
+              onChange={onChangeNewUserForm}
+            />
+          </Form.Group>
+
+          <Form.Group>
+            <Form.Text id="title-help" muted>
               username
             </Form.Text>
             <Form.Control
               type="text"
-              placeholder="BI9-157"
+              placeholder="Enter Username"
               name="username"
               required
               aria-describedby="title-help"
@@ -88,11 +105,11 @@ const AddUserModal = () => {
 
           <Form.Group>
             <Form.Text id="title-help" muted>
-              User Name *
+              User Full Name *
             </Form.Text>
             <Form.Control
               type="text"
-              placeholder="Enter Password"
+              placeholder="Enter User Full Name"
               name="userName"
               required
               aria-describedby="title-help"

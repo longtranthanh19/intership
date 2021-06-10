@@ -10,6 +10,8 @@ import Lecturer from "./views/Lecturer";
 import Course from "./views/Course";
 import Result from "./views/Result";
 import User from "./views/User";
+import Profile from "./views/Profile";
+import ResultProfile from "./views/ResultProfile";
 
 import AuthContextProvider from "./contexts/AuthContext";
 import ProtectedRoute from "./components/routing/ProtectedRoute";
@@ -65,11 +67,9 @@ function App() {
                           path="/result"
                           component={Result}
                         />
-                        <ProtectedRoute
-                          exact
-                          path="/user"
-                          component={User}
-                        />
+                        <ProtectedRoute exact path="/user" component={User} />
+                        <ProtectedRoute exact path="/profile" component={Profile} />
+                        <ProtectedRoute exact path="/resultprofile" component={ResultProfile} />
                       </Switch>
                     </BrowserRouter>
                   </UserContextProvider>

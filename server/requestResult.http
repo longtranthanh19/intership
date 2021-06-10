@@ -29,6 +29,10 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDliN
 GET http://localhost:5000/api/result
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDliNzU5NmNjMDY1ZTUxNzQ4MzBiNTYiLCJpYXQiOjE2MjA5NjQ4Nzd9.VsRPLY0baRMgZIbADIw8ip5UfXIGsCee4zAEfMxAB7E
 
+### 
+GET http://localhost:5000/api/result/getResult
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGMxYmRiNzBjM2FlNTJmMmNmYzkzZTIiLCJyb2xlIjoiU3R1ZGVudCIsImlkIjoiQkk5LTE1NyIsImlhdCI6MTYyMzMxMjc5MH0.rvbSy_wmk-QGLYdB4mNDBcQAQTsnQya4w05Cib4DR8E
+
 ###
 PUT http://localhost:5000/api/result/60a6acf23525244938701580
 Content-Type: application/json

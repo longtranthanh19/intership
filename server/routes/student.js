@@ -12,10 +12,25 @@ const Student = require("../models/Student");
 // @desc Get Student List
 // @access Private
 
-router.get("/", verifyToken, isBoth , async (req, res) => {
+router.get("/", verifyToken, isBoth, async (req, res) => {
   try {
     const students = await Student.find();
     res.json({ success: true, students });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ success: false, message: "Internal server error" });
+  }
+});
+
+// @route GET api/student
+// @desc Get Student Profile
+// @access Private
+
+router.get("/getProfile", verifyToken, async (req, res) => {
+  const studentID = req.id;
+  try {
+    const studentProfile = await Student.findOne({ studentID: studentID });
+    res.json({ success: true, studentProfile });
   } catch (error) {
     console.log(error);
     res.status(500).json({ success: false, message: "Internal server error" });

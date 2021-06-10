@@ -6,11 +6,12 @@ const jwt = require("jsonwebtoken");
 const isBoth = require("../middleware/isBoth");
 const isStaff = require("../middleware/isStaff");
 const User = require("../models/User");
+
 // @route GET api/auth
 // @desc Check if user is logged in
 // @access Public
 
-router.get("/", verifyToken , async (req, res) => {
+router.get("/", verifyToken, async (req, res) => {
   try {
     const users = await User.find();
     res.json({ success: true, users });
@@ -25,7 +26,7 @@ router.get("/", verifyToken , async (req, res) => {
 // @access Public
 
 router.post("/register", async (req, res) => {
-  const { username, password, userName, role } = req.body;
+  const { id, username, password, userName, role } = req.body;
 
   // Simple validation
   if (!username || !password)
@@ -45,6 +46,7 @@ router.post("/register", async (req, res) => {
     // All good
     const hashedPassword = await argon2.hash(password);
     const newUser = new User({
+      id,
       username,
       password: hashedPassword,
       userName,

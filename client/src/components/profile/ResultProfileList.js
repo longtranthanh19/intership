@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
@@ -9,12 +9,10 @@ import Tooltip from "react-bootstrap/Tooltip";
 import Form from "react-bootstrap/Form";
 import FormControl from "react-bootstrap/FormControl";
 
-const StudentList = ({ SingleStudent, setShowAddStudentModal, students }) => {
+const ResultProfileList = ({ ProfileResult, id, studentResult }) => {
   // Search
   const [searchText, setSearchText] = useState("");
-  const [data, setData] = useState(students);
-
-  useEffect(() => {}, [students]);
+  const [data, setData] = useState(studentResult);
 
   const handleChange = (value) => {
     setSearchText(value);
@@ -24,9 +22,9 @@ const StudentList = ({ SingleStudent, setShowAddStudentModal, students }) => {
   const filterData = (value) => {
     const lowerCaseValue = value.toLowerCase().trim();
     if (!lowerCaseValue) {
-      setData(students);
+      setData(studentResult);
     } else {
-      const filteredData = students.filter((item) => {
+      const filteredData = studentResult.filter((item) => {
         return Object.keys(item).some((key) => {
           return item[key].toString().toLowerCase().includes(lowerCaseValue);
         });
@@ -37,11 +35,8 @@ const StudentList = ({ SingleStudent, setShowAddStudentModal, students }) => {
 
   return (
     <div>
-      <h1
-        className="main-title d-flex justify-content-around"
-        style={{ padding: "10px" }}
-      >
-        USTH STUDENT
+      <h1 className="main-title d-flex justify-content-around" style={{ padding: "10px" }}>
+        USTH RESULTS
       </h1>
       <Form className="search-box d-flex justify-content-end">
         <FormControl
@@ -56,32 +51,19 @@ const StudentList = ({ SingleStudent, setShowAddStudentModal, students }) => {
       </Form>
 
       <Row className="row-cols-1 row-cols-md-3 g-4 mx-auto mt-3">
-        {data.map((student) => (
-          <Col key={student._id} className="my-2">
-            <SingleStudent student={student} />
+        {data.map((studentResult) => (
+          <Col key={studentResult._id} className="my-2">
+            <ProfileResult id={id} studentResult={studentResult} />
           </Col>
         ))}
         {data.length === 0 && (
           <h4 className="d-flex justify-content-around">
-            No Student Found To Display!
+            No Course Found To Display!
           </h4>
         )}
       </Row>
-
-      {/* Open Add Post Modal */}
-      <OverlayTrigger
-        placement="left"
-        overlay={<Tooltip>Add New Student !!</Tooltip>}
-      >
-        <Button
-          className="btn-floating"
-          onClick={setShowAddStudentModal.bind(this, true)}
-        >
-          <img src={addIcon} alt="add-post" width="60" height="60" />
-        </Button>
-      </OverlayTrigger>
     </div>
   );
 };
 
-export default StudentList;
+export default ResultProfileList;

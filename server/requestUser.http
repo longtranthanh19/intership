@@ -3,10 +3,11 @@ POST http://localhost:5000/api/user/register
 Content-Type: application/json
 
 {
-    "username": "admin",
-    "password": "admin",
-    "userName": "Ha",
-    "role": "Staff"
+    "id": "12",
+    "username": "BI9-177",
+    "password": "student",
+    "userName": "Le Ho Nguyen",
+    "role": "Student"
 }
 
 ### 

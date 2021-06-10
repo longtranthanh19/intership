@@ -1,9 +1,12 @@
-import { createContext, useReducer, useState } from "react";
+import { createContext, useReducer, useState, useContext } from "react";
 import { studentReducer } from "../reducers/studentReducer";
+import { AuthContext } from "../contexts/AuthContext";
 import {
   apiUrl,
   STUDENTS_LOADED_SUCCESS,
   STUDENTS_LOADED_FAILED,
+  STUDENT_PROFILE_LOADED_SUCCESS,
+  STUDENT_PROFILE_LOADED_FAILED,
   ADD_STUDENT,
   DELETE_STUDENT,
   FIND_STUDENT,
@@ -16,6 +19,7 @@ export const StudentContext = createContext();
 const StudentContextProvider = ({ children }) => {
   // State
   const [studentState, dispatch] = useReducer(studentReducer, {
+    studentProfile: null,
     student: null,
     students: [],
     studentsLoading: true,
@@ -33,6 +37,7 @@ const StudentContextProvider = ({ children }) => {
     type: "null",
   });
 
+
   // Get All Posts
   const getStudents = async () => {
     try {
@@ -48,6 +53,21 @@ const StudentContextProvider = ({ children }) => {
     }
   };
 
+  // Get Student Profile
+  const getStudentProfile = async () => {
+    try {
+      const response = await axios.get(`${apiUrl}/student/getProfile`);
+      if (response.data.success) {
+        dispatch({
+          type: STUDENT_PROFILE_LOADED_SUCCESS,
+          payload: response.data.studentProfile,
+        });
+      }
+    } catch (error) {
+      dispatch({ type: STUDENT_PROFILE_LOADED_FAILED });
+    }
+  };
+
   // Add Student
   const addStudent = async (newStudent) => {
     try {
@@ -56,7 +76,7 @@ const StudentContextProvider = ({ children }) => {
         // window.location.reload();
         console.log(response.data.success);
         dispatch({ type: ADD_STUDENT, payload: response.data.student });
-        console.log(response.data)
+        console.log(response.data);
         return response.data;
       }
     } catch (error) {
@@ -115,6 +135,7 @@ const StudentContextProvider = ({ children }) => {
   const studentContextData = {
     studentState,
     getStudents,
+    getStudentProfile,
     showAddStudentModal,
     setShowAddStudentModal,
     addStudent,

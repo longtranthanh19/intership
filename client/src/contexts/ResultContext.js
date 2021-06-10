@@ -4,6 +4,8 @@ import {
   apiUrl,
   RESULTS_LOADED_SUCCESS,
   RESULTS_LOADED_FAILED,
+  RESULT_PROFILE_LOADED_SUCCESS,
+  RESULT_PROFILE_LOADED_FAILED,
   ADD_RESULT,
   DELETE_RESULT,
   FIND_RESULT,
@@ -16,6 +18,7 @@ export const ResultContext = createContext();
 const ResultContextProvider = ({ children }) => {
   // State
   const [resultState, dispatch] = useReducer(resultReducer, {
+    studentResult: null,
     result: null,
     results: [],
     resultsLoading: true,
@@ -45,6 +48,21 @@ const ResultContextProvider = ({ children }) => {
       }
     } catch (error) {
       dispatch({ type: RESULTS_LOADED_FAILED });
+    }
+  };
+
+  // Get Student Result
+  const getResultProfile = async () => {
+    try {
+      const response = await axios.get(`${apiUrl}/result/getResult`);
+      if (response.data.success) {
+        dispatch({
+          type: RESULT_PROFILE_LOADED_SUCCESS,
+          payload: response.data.studentResult,
+        });
+      }
+    } catch (error) {
+      dispatch({ type: RESULT_PROFILE_LOADED_FAILED });
     }
   };
 
@@ -111,6 +129,7 @@ const ResultContextProvider = ({ children }) => {
   const resultContextData = {
     resultState,
     getResults,
+    getResultProfile,
     showAddResultModal,
     setShowAddResultModal,
     addResult,

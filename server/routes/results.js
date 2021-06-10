@@ -90,6 +90,21 @@ router.get("/", verifyToken, async (req, res) => {
   }
 });
 
+// @route GET api/result
+// @desc Get Result List
+// @access Private
+
+router.get("/getResult", verifyToken, async (req, res) => {
+  const studentID = req.id;
+  try {
+    const studentResult = await Result.find({ studentID: studentID });
+    res.json({ success: true, studentResult });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ success: false, message: "Internal server error" });
+  }
+});
+
 // @route PUT api/lecturer
 // @desc Update Lecturer Info
 // @access Private
