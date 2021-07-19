@@ -30,7 +30,41 @@ router.get("/getProfile", verifyToken, async (req, res) => {
   const studentID = req.id;
   try {
     const studentProfile = await Student.findOne({ studentID: studentID });
-    res.json({ success: true, studentProfile });
+    res.json({ success: true, student: studentProfile });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ success: false, message: "Internal server error" });
+  }
+});
+
+// @route GET api/student
+// @desc Get Student Profile
+// @access Private
+
+router.get("/:studentID", verifyToken, async (req, res) => {
+  const studentID = req.params.studentID;
+  try {
+    const studentProfile = await Student.findOne({ studentID: studentID });
+    res.json({ success: true, student: studentProfile });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ success: false, message: "Internal server error" });
+  }
+});
+
+// @route GET api/student
+// @desc Get Student Profile By Department
+// @access Private
+
+router.get("/:major/:session", verifyToken, async (req, res) => {
+  const session = req.params.session;
+  const major = req.params.major;
+  try {
+    const studentSession = await Student.find({
+      major: major,
+      session: session,
+    });
+    res.json({ success: true, students: studentSession });
   } catch (error) {
     console.log(error);
     res.status(500).json({ success: false, message: "Internal server error" });
@@ -41,18 +75,21 @@ router.get("/getProfile", verifyToken, async (req, res) => {
 // @desc Create Student
 // @access Private
 
-router.post("/", verifyToken, async (req, res) => {
+router.post("/", verifyToken, isBoth, async (req, res) => {
   const {
     studentID,
     studentName,
     gender,
     dateOfBirth,
-    dateOfAdmission,
+    intake,
     email,
     phoneNumber,
     address,
-    department,
+    levelOfTraining,
+    typeOfTraining,
+    major,
     session,
+    wave,
   } = req.body;
 
   //Simple Validation
@@ -62,23 +99,33 @@ router.post("/", verifyToken, async (req, res) => {
       .json({ success: false, message: "StudentID is required" });
 
   try {
-    const studentid = await Student.findOne({ studentID });
-    if (studentid)
+    const studentId = await Student.findOne({ studentID });
+    const studentEmail = await Student.findOne({ email });
+
+    if (studentId)
       return res
         .status(400)
         .json({ success: false, message: "StudentID Already Taken" });
+
+    if (studentEmail)
+      return res
+        .status(400)
+        .json({ success: false, message: "Email Already Taken" });
 
     const newStudent = new Student({
       studentID,
       studentName,
       gender: gender,
       dateOfBirth,
-      dateOfAdmission,
+      intake,
       email,
       phoneNumber,
+      levelOfTraining: levelOfTraining,
+      typeOfTraining,
       address,
-      department: department,
+      major: major,
       session,
+      wave,
     });
 
     await newStudent.save();
@@ -97,18 +144,21 @@ router.post("/", verifyToken, async (req, res) => {
 // @route PUT api/students
 // @desc Update Student Info
 // @access Private
-router.put("/:id", verifyToken, isStaff, async (req, res) => {
+router.put("/:id", verifyToken, async (req, res) => {
   const {
     studentID,
     studentName,
     gender,
     dateOfBirth,
-    dateOfAdmission,
+    intake,
     email,
     phoneNumber,
     address,
-    department,
+    levelOfTraining,
+    typeOfTraining,
+    major,
     session,
+    wave,
   } = req.body;
 
   // Simple validation
@@ -123,12 +173,15 @@ router.put("/:id", verifyToken, isStaff, async (req, res) => {
       studentName,
       gender: gender,
       dateOfBirth,
-      dateOfAdmission,
+      intake,
       email,
       phoneNumber,
+      levelOfTraining: levelOfTraining,
+      typeOfTraining,
       address,
-      department: department,
+      major: major,
       session,
+      wave,
     };
 
     const postStudentCondition = { _id: req.params.id };
@@ -160,7 +213,7 @@ router.put("/:id", verifyToken, isStaff, async (req, res) => {
 // @route DELETE api/student
 // @desc Delete Student
 // @access Private
-router.delete("/:id", verifyToken, async (req, res) => {
+router.delete("/:id", verifyToken, isBoth, async (req, res) => {
   try {
     const studentDeleteCondition = { _id: req.params.id };
     const deletedStudent = await Student.findOneAndDelete(

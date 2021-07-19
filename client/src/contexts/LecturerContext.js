@@ -48,6 +48,21 @@ const LecturerContextProvider = ({ children }) => {
     }
   };
 
+    // Get All Lecturer by Department
+    const getLecturersByDepartment = async (department) => {
+      try {
+        const response = await axios.get(`${apiUrl}/lecturer/${department}`);
+        if (response.data.success) {
+          dispatch({
+            type: LECTURERS_LOADED_SUCCESS,
+            payload: response.data.lecturers,
+          });
+        }
+      } catch (error) {
+        dispatch({ type: LECTURERS_LOADED_FAILED });
+      }
+    };
+
   // Add Lecturer
   const addLecturer = async (newLecturer) => {
     try {
@@ -111,6 +126,7 @@ const LecturerContextProvider = ({ children }) => {
   const lecturerContextData = {
     lecturerState,
     getLecturers,
+    getLecturersByDepartment,
     showAddLecturerModal,
     setShowAddLecturerModal,
     addLecturer,

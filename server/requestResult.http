@@ -1,65 +1,88 @@
 ###
 POST http://localhost:5000/api/result
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDliNzU5NmNjMDY1ZTUxNzQ4MzBiNTYiLCJpYXQiOjE2MjA5NjQ4Nzd9.VsRPLY0baRMgZIbADIw8ip5UfXIGsCee4zAEfMxAB7E
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGMxZDJlM2RmNGUxNzJmOWNlNGE2M2YiLCJyb2xlIjoiTGVjdHVyZXIiLCJpZCI6IkwtMDMiLCJpYXQiOjE2MjM1NzAxNTd9.e67QTu8FIurdMVOVmVmbhh-4CX9o_CJOkRvV8C1FdRI
 
 {
-  "studentID": "BI9-157",
-  "studentName": "Tran Thanh Long",
-  "courseCode": "MATH 2.1",
-  "courseName": "PROBABILITIES & STATISTICS",
-  "lecturerName": "Tran Hoang Tung",
-  "year": "2nd Year",
-  "program":"Bachelor",
-  "department": "ICT",
-  "creditPoints": "3 ECTS",
-  "attendance": "16",
-  "exercises": "18",
+  "studentID": "BI9-068",
+  "studentName": "Dang Anh Duc",
+  "courseCode": "ICT3.4",
+  "courseName": "OBJECT-ORIENTED SYSTEM ANALYSIS & DESIGN",
+  "lecturerID": "L-99",
+  "lecturerName": "Dang Duc Hanh",
+  "year": "3rd Year",
+  "levelOfTraining":"Bachelor",
+  "typeOfTraining":"Full-Time",
+  "major": "ICT",
+  "creditPoints": "4 ECTS",
+  "attendance": "18",
+  "exercises": "0",
   "assignment": "0",
   "reports": "0",
   "midterm": "18",
   "final": "18",
   "total": "18",
-  "status": "pass",
+  "ectsGrade": "A",
+  "status": "Pass",
   "date": "19/11/2019",
-  "wave": "2019-2020"
+  "wave": "2018-2019"
 }
 
 ### 
 GET http://localhost:5000/api/result
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDliNzU5NmNjMDY1ZTUxNzQ4MzBiNTYiLCJpYXQiOjE2MjA5NjQ4Nzd9.VsRPLY0baRMgZIbADIw8ip5UfXIGsCee4zAEfMxAB7E
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGMxYzRjMzJkMTM3YjU3ODQ4ODlmNWUiLCJyb2xlIjoiU3RhZmYiLCJpZCI6IiIsImlhdCI6MTYyNjQzNTI1NX0.Eflw_bAwTsPdxqR618QJclhxcTifrV5kvXV0-J5YA3w
+
+### 
+GET http://localhost:5000/api/result/export/2019-2021/MATH 2.11
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGMxYzRjMzJkMTM3YjU3ODQ4ODlmNWUiLCJyb2xlIjoiU3RhZmYiLCJpZCI6IiIsImlhdCI6MTYyNjQzNTI1NX0.Eflw_bAwTsPdxqR618QJclhxcTifrV5kvXV0-J5YA3w
+
+
+### 
+GET http://localhost:5000/api/result/BI9-157
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGMxYzRjMzJkMTM3YjU3ODQ4ODlmNWUiLCJyb2xlIjoiU3RhZmYiLCJpZCI6IiIsImlhdCI6MTYyNjQzNTI1NX0.Eflw_bAwTsPdxqR618QJclhxcTifrV5kvXV0-J5YA3w
 
 ### 
 GET http://localhost:5000/api/result/getResult
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGMxYmRiNzBjM2FlNTJmMmNmYzkzZTIiLCJyb2xlIjoiU3R1ZGVudCIsImlkIjoiQkk5LTE1NyIsImlhdCI6MTYyMzMxMjc5MH0.rvbSy_wmk-QGLYdB4mNDBcQAQTsnQya4w05Cib4DR8E
 
+### 
+GET http://localhost:5000/api/result/getResultByLec
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGMxZDJlM2RmNGUxNzJmOWNlNGE2M2YiLCJyb2xlIjoiTGVjdHVyZXIiLCJpZCI6IkwtMDMiLCJkZXBhcnRtZW50IjoiSUNUIiwiaWF0IjoxNjI2MDc4MTUzfQ.TT4PQle6P-d0zEqhzcwvjX-fcbTswQxSOTAXia-lyZg
+
+### 
+GET http://localhost:5000/api/result/1st Year/Bachelor/2019-2020/ICT/PROBABILITIES & STATISTICS
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGMxZDJlM2RmNGUxNzJmOWNlNGE2M2YiLCJyb2xlIjoiTGVjdHVyZXIiLCJpZCI6IkwtMDMiLCJkZXBhcnRtZW50IjoiSUNUIiwiaWF0IjoxNjI2MDc4MTUzfQ.TT4PQle6P-d0zEqhzcwvjX-fcbTswQxSOTAXia-lyZg
+
 ###
-PUT http://localhost:5000/api/result/60a6acf23525244938701580
+PUT http://localhost:5000/api/result/60f54c4bc2715141a0dff9cc
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDliNzU5NmNjMDY1ZTUxNzQ4MzBiNTYiLCJpYXQiOjE2MjA5NjQ4Nzd9.VsRPLY0baRMgZIbADIw8ip5UfXIGsCee4zAEfMxAB7E
 
 {
-  "studentID": "BI9-157",
-  "StudentName": "Tran Thanh Long1",
-  "courseCode": "MATH 2.1",
-  "courseName": "PROBABILITIES & STATISTICS",
-  "lecturerName": "Tran Hoang Tung",
-  "year": "2nd Year",
-  "program":"Bachelor",
-  "department": "ICT",
-  "evaluation":{
-      "attendance": "16",
-      "exercises": "18",
-      "assignment": "0",
-      "reports": "0",
-      "midterm": "18",
-      "final": "18",
-      "total": "20"
-  },
-  "date": "19/11/2019",
-  "wave": "2019-2020"
+    "studentID": "BI9-157",
+    "studentName": "Tran Thanh Long",
+    "courseCode": "FR2.1",
+    "courseName": "FRANCE 2.1",
+    "lecturerID": "L-99",
+    "lecturerName": "LEO",
+    "year": "2nd Year",
+    "levelOfTraining": "Bachelor",
+    "typeOfTraining": "Full-Time",
+    "major": "ICT",
+    "creditPoints": "1 ECTS",
+    "attendance": "18",
+    "exercises": "0",
+    "assignment": "0",
+    "reports": "0",
+    "midterm": "18",
+    "final": "18",
+    "total": "18",
+    "ectsGrade": "A",
+    "status": "Pass",
+    "date": "19/11/2019",
+    "wave": "2018-2019"
 }
 
 ###
-DELETE http://localhost:5000/api/result/60a6a785f2723c16f8f98ccb
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDliNzU5NmNjMDY1ZTUxNzQ4MzBiNTYiLCJpYXQiOjE2MjA5NjQ4Nzd9.VsRPLY0baRMgZIbADIw8ip5UfXIGsCee4zAEfMxAB7E
+DELETE http://localhost:5000/api/result/60f4fef270ba8a3af8856514
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGYyYTI0YjM5NDM0YjViNTAyYmMwMzMiLCJyb2xlIjoiTGVjdHVyZXIiLCJpZCI6IkwtMDMiLCJpYXQiOjE2MjY2ODgyNDh9.HvtLL6gz7Ifvhwqbt6B0tEEE_18WybkPfpewUnGFt2Q

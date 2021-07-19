@@ -19,7 +19,12 @@ const UpdateUserModal = () => {
 
   useEffect(() => setUpdatedUser(user), [user]);
 
-  const { username, password, role, userName } = updatedUser;
+  const { id, username, password, role, userName } = updatedUser;
+
+  const [showPassword, setShowPassword] = useState(false);
+
+  const handleShowPassword = () =>
+    setShowPassword((prevShowPassword) => !prevShowPassword);
 
   const onChangeUpdatedUserForm = (event) =>
     setUpdatedUser({
@@ -57,6 +62,21 @@ const UpdateUserModal = () => {
         <Modal.Body>
           <Form.Group>
             <Form.Text id="title-help" muted>
+              ID
+            </Form.Text>
+            <Form.Control
+              type="text"
+              placeholder="Change username"
+              name="id"
+              required
+              aria-describedby="title-help"
+              value={id}
+              onChange={onChangeUpdatedUserForm}
+            />
+          </Form.Group>
+
+          <Form.Group>
+            <Form.Text id="title-help" muted>
               username
             </Form.Text>
             <Form.Control
@@ -75,13 +95,18 @@ const UpdateUserModal = () => {
               Password *
             </Form.Text>
             <Form.Control
-              type="password"
+              type={showPassword ? "text" : "password"}
               placeholder="Change Password"
               name="password"
               required
               aria-describedby="title-help"
               value={password}
               onChange={onChangeUpdatedUserForm}
+            />
+            <Form.Check
+              type="checkbox"
+              label="Show password"
+              onClick={handleShowPassword}
             />
           </Form.Group>
 
@@ -124,11 +149,7 @@ const UpdateUserModal = () => {
           <Button variant="secondary" onClick={closeDialog}>
             Cancel
           </Button>
-          <Button
-            variant="primary"
-            type="submit"
-            onClick={() => window.location.reload()}
-          >
+          <Button variant="primary" type="submit">
             Update
           </Button>
         </Modal.Footer>

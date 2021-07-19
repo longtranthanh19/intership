@@ -1,32 +1,40 @@
 ###
 POST http://localhost:5000/api/user/register
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGMxYzRjMzJkMTM3YjU3ODQ4ODlmNWUiLCJyb2xlIjoiU3RhZmYiLCJpZCI6IiIsImlhdCI6MTYyMzU2NzU1NH0.Zk6qh0QU0jTuo2c7nb1-bUqwgHPAKXSnooAbaoDHreM
 
 {
     "id": "12",
-    "username": "BI9-177",
-    "password": "student",
-    "userName": "Le Ho Nguyen",
-    "role": "Student"
+    "username": "lecturer",
+    "password": "lecturer",
+    "userName": "Doan Nhat Quang",
+    "role": "Staff",
+    "department": "ICT"
 }
 
 ### 
-GET http://localhost:5000/api/user
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGJmMzdiOTAyOTY1NTQ4NTgyMzllODMiLCJpYXQiOjE2MjMxNDQ0NjN9.UFLra4OGT0o3Vr2B9HOisKITK67uwdmwnHD7BgPPLLY
+GET http://localhost:5000/api/user/Student
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGMxYzRjMzJkMTM3YjU3ODQ4ODlmNWUiLCJyb2xlIjoiU3RhZmYiLCJpZCI6IiIsImlhdCI6MTYyMzU2NzU1NH0.Zk6qh0QU0jTuo2c7nb1-bUqwgHPAKXSnooAbaoDHreM
 
 ### 
-PUT http://localhost:5000/api/user/60bf48d189d9ed457812a154
+GET http://localhost:5000/api/user/getProfile
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGYyYTI0YjM5NDM0YjViNTAyYmMwMzMiLCJyb2xlIjoiTGVjdHVyZXIiLCJpZCI6IkwtMDMiLCJpYXQiOjE2MjY2Mjc3Mzl9.zXwi6bi8kuu3IfHa5P04Hpy6SVU7APYV2KbuvTRAE0Y
+
+### 
+PUT http://localhost:5000/api/user/60c1d2e3df4e172f9ce4a63f
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGJmMWJiOGI5MmFlNjU1MTRkYzFiYzYiLCJyb2xlIjoiU3RhZmYiLCJpYXQiOjE2MjMxMzc2OTR9.VIOlav5UpbTsbjJzSMVBOfk6iCjWtyY3PT4KR4hzU9g
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGMxYzRjMzJkMTM3YjU3ODQ4ODlmNWUiLCJyb2xlIjoiU3RhZmYiLCJpZCI6IiIsImlhdCI6MTYyMzU2NzU1NH0.Zk6qh0QU0jTuo2c7nb1-bUqwgHPAKXSnooAbaoDHreM
 
 {
-    "username": "admin",
-    "password": "admin",
-    "userName": "Ha",
-    "role": "Staff"
+    "id": "L-03",
+    "username": "lecturer",
+    "password": "lecturer",
+    "userName": "Doan Nhat Quang",
+    "role": "Lecturer",
+    "department": "ICT"
 }
 
 ###
-DELETE http://localhost:5000/api/user/60bf48d189d9ed457812a154
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGIwYTQxMTFjMzQ2NDBlMjBiNmZkODMiLCJpYXQiOjE2MjIxOTU3MzN9.rllqYcqswZEtOsmuodX0OFTXJhj5C6N40nnuxW9TMmA
+DELETE http://localhost:5000/api/user/60c639d48739644e844397fc
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGMxYzRjMzJkMTM3YjU3ODQ4ODlmNWUiLCJyb2xlIjoiU3RhZmYiLCJpZCI6IiIsImlhdCI6MTYyMzYwMzcwOX0.liEHKL7Hm79CZj9qn_DppfRX16FoItJS1TFXm4WtENg
 

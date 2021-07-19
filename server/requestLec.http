@@ -1,17 +1,17 @@
 ###
 POST http://localhost:5000/api/lecturer
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDliNzU5NmNjMDY1ZTUxNzQ4MzBiNTYiLCJpYXQiOjE2MjA5NjQ4Nzd9.VsRPLY0baRMgZIbADIw8ip5UfXIGsCee4zAEfMxAB7E
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGMxYzRjMzJkMTM3YjU3ODQ4ODlmNWUiLCJyb2xlIjoiU3RhZmYiLCJpZCI6IiIsImlhdCI6MTYyNjY4OTQwNn0.qt_kx7HscK5hm4_PEmud29UUglFMpbHWGeBxp-AK9zY
 
 {
-  "lecturerID": "L-03",
-  "lecturerName": "Doan Nhat Quang",
+  "lecturerID": "L-07",
+  "lecturerName": "Tran Hoang Tung",
   "gender": "Male",
   "dateOfBirth": "1/10/1970",
   "degree":"PhD",
-  "email": "doan-nhat.quang@usth.edu.vn",
+  "email": "tran-hoang.tung@usth.edu.vn",
   "phoneNumber": "012341231231",
-  "address":"Dao Tan",
+  "address":"18A Hoang Quoc Viet",
   "department": "ICT"
 }
 
@@ -19,23 +19,27 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDliN
 GET http://localhost:5000/api/lecturer
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGJmNDQ3OTBlOWU3MTYwYjg5N2U4MjIiLCJpYXQiOjE2MjMxNDg2NzF9.UXbLUYqN9kLqOD8u5LO_u50afuoT-vB6kMQJWRDlKZ4
 
+### 
+GET http://localhost:5000/api/lecturer/ICT
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGJmNDQ3OTBlOWU3MTYwYjg5N2U4MjIiLCJpYXQiOjE2MjMxNDg2NzF9.UXbLUYqN9kLqOD8u5LO_u50afuoT-vB6kMQJWRDlKZ4
+
 ###
-PUT http://localhost:5000/api/lecturer/60a5e9a26645dd0d44061d15
+PUT http://localhost:5000/api/lecturer/60f5501dc2715141a0dff9d1
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDliNzU5NmNjMDY1ZTUxNzQ4MzBiNTYiLCJpYXQiOjE2MjA5NjQ4Nzd9.VsRPLY0baRMgZIbADIw8ip5UfXIGsCee4zAEfMxAB7E
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGMxYzRjMzJkMTM3YjU3ODQ4ODlmNWUiLCJyb2xlIjoiU3RhZmYiLCJpZCI6IiIsImlhdCI6MTYyNjY4OTQwNn0.qt_kx7HscK5hm4_PEmud29UUglFMpbHWGeBxp-AK9zY
 
 {
-  "lecturerID": "L-03",
-  "lecturerName": "Tran Giang Son",
-  "gender": "Male",
+  "lecturerID": "L-01",
+  "lecturerName": "Luong Chi Mai",
+  "gender": "Female",
   "dateOfBirth": "1/10/1970",
-  "degree":"PhD",
-  "email": "doan-nhat.quang@usth.edu.vn",
+  "degree": "PhD",
+  "email": "luong-chi.mai@usth.edu.vn",
   "phoneNumber": "012341231231",
-  "address":"Dao Tan",
+  "address": "18A Hoang Quoc Viet",
   "department": "ICT"
 }
 
 ###
-DELETE http://localhost:5000/api/lecturer/60a5e9a26645dd0d44061d15
+DELETE http://localhost:5000/api/lecturer/60f286597538b9456815c967
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDliNzU5NmNjMDY1ZTUxNzQ4MzBiNTYiLCJpYXQiOjE2MjA5NjQ4Nzd9.VsRPLY0baRMgZIbADIw8ip5UfXIGsCee4zAEfMxAB7E

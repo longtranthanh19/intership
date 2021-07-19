@@ -3,6 +3,8 @@ import {
   RESULTS_LOADED_FAILED,
   RESULT_PROFILE_LOADED_SUCCESS,
   RESULT_PROFILE_LOADED_FAILED,
+  RESULT_LECTURER_LOADED_SUCCESS,
+  RESULT_LECTURER_LOADED_FAILED,
   ADD_RESULT,
   DELETE_RESULT,
   FIND_RESULT,
@@ -37,6 +39,20 @@ export const resultReducer = (state, action) => {
       return {
         ...state,
         studentResult: payload,
+        resultsLoading: false,
+      };
+
+    case RESULT_LECTURER_LOADED_SUCCESS:
+      return {
+        ...state,
+        lecturerResults: payload,
+        resultsLoading: false,
+      };
+
+    case RESULT_LECTURER_LOADED_FAILED:
+      return {
+        ...state,
+        lecturerResults: payload,
         resultsLoading: false,
       };
 

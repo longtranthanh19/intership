@@ -17,7 +17,7 @@ const AddPostModal = () => {
     status: "",
   });
 
-  const { title, description, url, status } = newPost;
+  const { title, description, status } = newPost;
 
   const onChangeNewPostForm = (event) =>
     setNewPost({ ...newPost, [event.target.name]: event.target.value });
@@ -30,7 +30,16 @@ const AddPostModal = () => {
     event.preventDefault();
     const { success, message } = await addPost(newPost);
     resetAddPostData();
-    setShowToast({ show: true, message, type: success ? "success" : "danger" });
+    setShowToast({
+      show: true,
+      message: success ? `Add task '${title}' successful` : message,
+      type: success ? "success" : "danger",
+    });
+    if(success) {
+      setTimeout(() => {
+        window.location.reload();
+      }, 1000);
+    }
   };
 
   const resetAddPostData = () => {
@@ -91,7 +100,7 @@ const AddPostModal = () => {
             type="submit"
             // onClick={() => window.location.reload()}
           >
-            LearnIt!
+            Add Tasks!
           </Button>
         </Modal.Footer>
       </Form>

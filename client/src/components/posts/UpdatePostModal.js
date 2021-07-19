@@ -33,13 +33,17 @@ const UpdatePostModal = () => {
     event.preventDefault();
     const { success, message } = await updatePost(updatedPost);
     setShowUpdatePostModal(false);
-    setShowToast({ show: true, message, type: success ? "success" : "danger" });
+    setShowToast({
+      show: true,
+      message: `Update task '${title}' successful`,
+      type: success ? "success" : "danger",
+    });
+    if (success) {
+      setTimeout(() => {
+        window.location.reload();
+      }, 1000);
+    }
   };
-
-  // const resetAddPostData = () => {
-  // 	setNewPost({ title: '', description: '', url: '', status: 'TO LEARN' })
-  // 	setShowAddPostModal(false)
-  // }
 
   return (
     <Modal show={showUpdatePostModal} onHide={closeDialog}>

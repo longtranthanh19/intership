@@ -1,6 +1,7 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+
 // import { useHistory } from "react-router-dom";
 import { useState, useContext } from "react";
 import { AuthContext } from "../../contexts/AuthContext";
@@ -20,6 +21,10 @@ const LoginForm = () => {
   // Local State
   const { username, password } = loginForm;
   const [alert, setAlert] = useState(null);
+  const [showPassword, setShowPassword] = useState(false);
+
+  const handleShowPassword = () =>
+    setShowPassword((prevShowPassword) => !prevShowPassword);
 
   const onChangeLoginForm = (event) =>
     setLoginForm({ ...loginForm, [event.target.name]: event.target.value });
@@ -44,8 +49,9 @@ const LoginForm = () => {
         <AlertMessage info={alert} />
         <Form.Group>
           <Form.Label className="login-label d-flex justify-content-start">
-           Username
+            Username
           </Form.Label>
+
           <Form.Control
             type="text"
             placeholder="Username"
@@ -54,16 +60,15 @@ const LoginForm = () => {
             value={username}
             onChange={onChangeLoginForm}
           ></Form.Control>
-          <Form.Text className="text-muted d-flex justify-content-start">
-            We'll never share your account with anyone else.
-          </Form.Text>
         </Form.Group>
+
         <Form.Group>
           <Form.Label className="login-label d-flex justify-content-start">
             Password
           </Form.Label>
+
           <Form.Control
-            type="password"
+            type={showPassword ? "text" : "password"}
             placeholder="Password"
             name="password"
             required
@@ -71,6 +76,18 @@ const LoginForm = () => {
             onChange={onChangeLoginForm}
           ></Form.Control>
         </Form.Group>
+
+        <Form.Group
+          className="d-flex justify-content-start"
+          controlId="formBasicCheckbox"
+        >
+          <Form.Check
+            type="checkbox"
+            label="Show password"
+            onClick={handleShowPassword}
+          />
+        </Form.Group>
+
         <Button className="btn-login" variant="primary" size="lg" type="submit">
           Login
         </Button>

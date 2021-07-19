@@ -16,7 +16,7 @@ const studentSchema = new Schema({
     type: String,
     required: true,
   },
-  dateOfAdmission: {
+  intake: {
     type: String,
     required: true,
   },
@@ -32,7 +32,17 @@ const studentSchema = new Schema({
     type: String,
     required: true,
   },
-  department: {
+  levelOfTraining: {
+    type: String,
+    required: true,
+    enum: ["Bachelor 4 Year","Bachelor", "Master", "PhD"],
+  },
+  typeOfTraining: {
+    type: String,
+    required: true,
+    enum: ["Full-Time", "Part-Time"],
+  },
+  major: {
     type: String,
     required: true,
     enum: [
@@ -49,6 +59,10 @@ const studentSchema = new Schema({
     ],
   },
   session: {
+    type: String,
+    required: true,
+  },
+  wave: {
     type: String,
     required: true,
   },

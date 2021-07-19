@@ -21,7 +21,7 @@ const ActionButtons = ({ _id }) => {
     findResult(resultId);
     setShowDeleteResultModal(true);
   }
-
+  console.log(_id)
   return (
     <>
       <Button className="post-button" onClick={chooseResult.bind(this, _id)}>

@@ -2,55 +2,67 @@
 ###
 POST http://localhost:5000/api/student
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDliNzU5NmNjMDY1ZTUxNzQ4MzBiNTYiLCJpYXQiOjE2MjA5NjQ4Nzd9.VsRPLY0baRMgZIbADIw8ip5UfXIGsCee4zAEfMxAB7E
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGMxYzRjMzJkMTM3YjU3ODQ4ODlmNWUiLCJyb2xlIjoiU3RhZmYiLCJpZCI6IiIsImlhdCI6MTYyMzUxNDc4Mn0.Bnj7XKZEqyaJdwQSTZYVI3_z3EmNdhziHuL1vkeM4wQ
 
 {
-  "studentID": "BI9-157",
-  "studentName": "Tran Thanh Long",
+  "studentID": "BI9-068",
+  "studentName": "Nguyen Duc Dung",
   "gender": "Male",
-  "dateOfBirth": "19/10/2000",
-  "dateOfAdmission":"2018-2021",
-  "email": "longtt.bi9157@gmail.com",
-  "phoneNumber": "012341231231",
-  "address":"Dao Tan",
-  "department": "ICT",
-  "session":"Gen 9"
+  "dateOfBirth": "27/10/2000",
+  "intake":"2018",
+  "email": "dungnd.bi9068@st.usth.edu.vn",
+  "phoneNumber": "0912345678",
+  "address":"18A Hoang Quoc Viet",
+  "levelOfTraining": "Bachelor",
+  "typeOfTraining":"Full-Time",
+  "major": "ICT",
+  "session":"Gen 9",
+  "wave": "2018-2021"
 }
 
 ### 
 GET http://localhost:5000/api/student
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGMwNjhhOTMzYmVmZDBhM2M2NjViZjgiLCJyb2xlIjoiU3RhZmYiLCJpZCI6IkJJOS0xNTciLCJpYXQiOjE2MjMyMjYxMTV9.WgCK7z2iGW5UdUj5znEIboahOoZJJbTDJYkINgvY0Ic
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGMxYzRjMzJkMTM3YjU3ODQ4ODlmNWUiLCJyb2xlIjoiU3RhZmYiLCJpZCI6IiIsImlhdCI6MTYyMzUxNDc4Mn0.Bnj7XKZEqyaJdwQSTZYVI3_z3EmNdhziHuL1vkeM4wQ
 
 ### 
-GET http://localhost:5000/api/student
+GET http://localhost:5000/api/student/BI9-157
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGJmNDhkMTg5ZDllZDQ1NzgxMmExNTQiLCJyb2xlIjoiU3RhZmYiLCJpYXQiOjE2MjMxNjIwMjF9.8Mfj8qD1pWHGQo6ArxEu4BNo8UctQJPZntdlSSLzkVM
 
 ### 
 GET http://localhost:5000/api/student/getProfile
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGMxYmRiNzBjM2FlNTJmMmNmYzkzZTIiLCJyb2xlIjoiU3R1ZGVudCIsImlkIjoiQkk5LTE1NyIsImlhdCI6MTYyMzMxMjM1MH0.5-fH46iZzl2_2y1gBFncQXOqYPjrErYCB0qhGX_IXMc
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGMxYmRiNzBjM2FlNTJmMmNmYzkzZTIiLCJyb2xlIjoiU3R1ZGVudCIsImlkIjoiQkk5LTE1NyIsImlhdCI6MTYyNTYzNDE2MX0.Yg2I2jnz_8kGPPwXE0Hhlck4R2Tg97HifCwukyYTdbk
+
+### 
+GET http://localhost:5000/api/student/ICT/Gen 9
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGMxZDJlM2RmNGUxNzJmOWNlNGE2M2YiLCJyb2xlIjoiTGVjdHVyZXIiLCJpZCI6IkwtMDMiLCJkZXBhcnRtZW50IjoiSUNUIiwiaWF0IjoxNjIzNjAzNzc3fQ.FqD5MSBb24YTr0yz0EVjjjHvl_9_GYX3VM6ZXBKLQYc
+
 ### 
 GET http://localhost:5000/api/student
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGJlMjVmMGY0MmRkNjFmOTQzZjQyNTEiLCJyb2xlIjoiU3R1ZGVudCIsImlhdCI6MTYyMzA4MTM1NH0.Z9tgtbpcA0bZmetC3DlekJm5J0FJJxRXeNqPQ4qKhvI
 
 ### 
-PUT http://localhost:5000/api/student/60b663ef1efa475620de506c
+PUT http://localhost:5000/api/student/60f548ccc2715141a0dff9bd
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDliNzU5NmNjMDY1ZTUxNzQ4MzBiNTYiLCJpYXQiOjE2MjA5NjQ4Nzd9.VsRPLY0baRMgZIbADIw8ip5UfXIGsCee4zAEfMxAB7E
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGMxYzRjMzJkMTM3YjU3ODQ4ODlmNWUiLCJyb2xlIjoiU3RhZmYiLCJpZCI6IiIsImlhdCI6MTYyNTYzNDM4M30.VpCckoqwkSgLfCe0VGwCiw-Udxuekm2NWPoIHSVl-mE
 
 {
-  "studentID": "BI9-157",
-  "studentName": "Tran Thanh Long 2",
+  "studentID": "BI9-108",
+  "studentName": "Nguyen Minh Hoang",
   "gender": "Male",
-  "dateOfBirth": "19/10/2000",
-  "dateOfAdmission":"2018-2021",
-  "email": "longtt.bi9157@gmail.com",
-  "phoneNumber": "012341231231",
-  "address":"Dao Tan",
-  "department": "ICT",
-  "session":"Gen 9"
+  "dateOfBirth": "27/10/2000",
+  "intake":"2018",
+  "email": "hoangnm.bi9108@st.usth.edu.vn",
+  "phoneNumber": "0123415631",
+  "address":"18A Hoang Quoc Viet",
+  "levelOfTraining": "Bachelor",
+  "typeOfTraining":"Full-Time",
+  "major": "ICT",
+  "session":"Gen 9",
+  "wave": "2018-2021"
 }
 
+
 ###
-DELETE http://localhost:5000/api/student/60b6727e76a38664f4ae5484
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDliNzU5NmNjMDY1ZTUxNzQ4MzBiNTYiLCJpYXQiOjE2MjA5NjQ4Nzd9.VsRPLY0baRMgZIbADIw8ip5UfXIGsCee4zAEfMxAB7E
+DELETE http://localhost:5000/api/student/60c1bf2e758dc9365056459d
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGMxYzRjMzJkMTM3YjU3ODQ4ODlmNWUiLCJyb2xlIjoiU3RhZmYiLCJpZCI6IiIsImlhdCI6MTYyMzUxNDc4Mn0.Bnj7XKZEqyaJdwQSTZYVI3_z3EmNdhziHuL1vkeM4wQ
 

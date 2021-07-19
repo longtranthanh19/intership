@@ -26,12 +26,13 @@ const courseSchema = new Schema({
   program: {
     type: String,
     required: true,
-    enum: ["Bachelor", "Master", "PhD"],
+    enum: ["Bachelor", "Bachelor 4 Year", "Master", "PhD"],
   },
   department: {
     type: String,
     required: true,
     enum: [
+      "SCIENCE",
       "ICT",
       "PMAB",
       "NANO",
@@ -82,6 +83,10 @@ const courseSchema = new Schema({
   wave: {
     type: String,
   },
+  status: {
+    type: String,
+    enum: ["Waiting", "Teaching", "Finished"],
+  }
 });
 
-module.exports = mongoose.model("courses", courseSchema);
+module.exports = mongoose.model(`courses`, courseSchema);

@@ -1,5 +1,4 @@
 import Button from "react-bootstrap/Button";
-import playIcon from "../../assets/play-btn.svg";
 import editIcon from "../../assets/pencil.svg";
 import deleteIcon from "../../assets/trash.svg";
 import { PostContext } from "../../contexts/PostContext";

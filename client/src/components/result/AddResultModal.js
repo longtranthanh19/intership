@@ -19,10 +19,12 @@ const AddResultModal = () => {
     studentName: "",
     courseCode: "",
     courseName: "",
+    lecturerID: "",
     lecturerName: "",
     year: "",
-    program: "",
-    department: "",
+    levelOfTraining: "",
+    typeOfTraining: "",
+    major: "",
     creditPoints: " ECTS",
     attendance: "",
     exercises: "",
@@ -31,6 +33,7 @@ const AddResultModal = () => {
     midterm: "",
     final: "",
     total: "",
+    ectsGrade: "",
     status: "",
     date: "",
     wave: "",
@@ -41,10 +44,12 @@ const AddResultModal = () => {
     studentName,
     courseCode,
     courseName,
+    lecturerID,
     lecturerName,
     year,
-    program,
-    department,
+    levelOfTraining,
+    typeOfTraining,
+    major,
     creditPoints,
     attendance,
     exercises,
@@ -53,6 +58,7 @@ const AddResultModal = () => {
     midterm,
     final,
     total,
+    ectsGrade,
     status,
     date,
     wave,
@@ -71,9 +77,17 @@ const AddResultModal = () => {
     resetAddResultData();
     setResultShowToast({
       show: true,
-      message,
+      message: success
+        ? `Add ${studentName}'s result in course '${courseName}' successful`
+        : message,
       type: success ? "success" : "danger",
     });
+
+    if (success) {
+      setTimeout(() => {
+        window.location.reload();
+      }, 2000);
+    }
   };
 
   const resetAddResultData = () => {
@@ -82,10 +96,12 @@ const AddResultModal = () => {
       studentName: "",
       courseCode: "",
       courseName: "",
+      lecturerID: "",
       lecturerName: "",
       year: "",
-      program: "",
-      department: "",
+      levelofTraining: "",
+      typeofTraining: "",
+      major: "",
       creditPoints: " ECTS",
       attendance: "",
       exercises: "",
@@ -94,6 +110,7 @@ const AddResultModal = () => {
       midterm: "",
       final: "",
       total: "",
+      ectsGrade: "",
       status: "",
       date: "",
       wave: "",
@@ -114,11 +131,10 @@ const AddResultModal = () => {
             </Form.Text>
             <Form.Control
               type="text"
-              placeholder="BI9-157"
               name="studentID"
               required
               aria-describedby="title-help"
-              value={studentID}
+              value={studentID.toUpperCase()}
               onChange={onChangeNewResultForm}
             />
           </Form.Group>
@@ -128,7 +144,6 @@ const AddResultModal = () => {
             </Form.Text>
             <Form.Control
               type="text"
-              placeholder="Nguyen Van A"
               name="studentName"
               required
               aria-describedby="title-help"
@@ -142,26 +157,10 @@ const AddResultModal = () => {
             </Form.Text>
             <Form.Control
               type="text"
-              placeholder="MATH 1.1"
               name="courseCode"
               required
               aria-describedby="title-help"
-              value={courseCode}
-              onChange={onChangeNewResultForm}
-            />
-          </Form.Group>
-
-          <Form.Group>
-            <Form.Text id="title-help" muted>
-              Lecturer *
-            </Form.Text>
-            <Form.Control
-              type="text"
-              placeholder="DOAN NHAT QUANG"
-              name="lecturerName"
-              required
-              aria-describedby="title-help"
-              value={lecturerName}
+              value={courseCode.toUpperCase()}
               onChange={onChangeNewResultForm}
             />
           </Form.Group>
@@ -172,11 +171,38 @@ const AddResultModal = () => {
             </Form.Text>
             <Form.Control
               type="text"
-              placeholder="PROBABILITIES AND STATISTICS"
               name="courseName"
               required
               aria-describedby="title-help"
-              value={courseName}
+              value={courseName.toUpperCase()}
+              onChange={onChangeNewResultForm}
+            />
+          </Form.Group>
+
+          <Form.Group>
+            <Form.Text id="title-help" muted>
+              LecturerID *
+            </Form.Text>
+            <Form.Control
+              type="text"
+              name="lecturerID"
+              required
+              aria-describedby="title-help"
+              value={lecturerID.toUpperCase()}
+              onChange={onChangeNewResultForm}
+            />
+          </Form.Group>
+
+          <Form.Group>
+            <Form.Text id="title-help" muted>
+              Lecturer *
+            </Form.Text>
+            <Form.Control
+              type="text"
+              name="lecturerName"
+              required
+              aria-describedby="title-help"
+              value={lecturerName}
               onChange={onChangeNewResultForm}
             />
           </Form.Group>
@@ -203,17 +229,17 @@ const AddResultModal = () => {
 
           <Form.Group>
             <Form.Text id="title-help" muted>
-              Program *
+              Level of Training *
             </Form.Text>
             <Form.Control
               as="select"
-              value={program}
-              name="program"
+              value={levelOfTraining}
+              name="levelOfTraining"
               required
               onChange={onChangeNewResultForm}
             >
               <option value="Gender" muted>
-                Program *
+                Level of Training *
               </option>
               <option value="Bachelor">Bachelor</option>
               <option value="Master">Master</option>
@@ -223,18 +249,36 @@ const AddResultModal = () => {
 
           <Form.Group>
             <Form.Text id="title-help" muted>
-              Deparment *
+              Type of Training *
             </Form.Text>
             <Form.Control
               as="select"
-              placeholder="Department"
-              value={department}
-              name="department"
+              value={typeOfTraining}
+              name="typeOfTraining"
+              required
+              onChange={onChangeNewResultForm}
+            >
+              <option value="Gender" muted>
+                Type of Training *
+              </option>
+              <option value="Full-Time">Full-Time</option>
+              <option value="Part-Time">Part-Time</option>
+            </Form.Control>
+          </Form.Group>
+
+          <Form.Group>
+            <Form.Text id="title-help" muted>
+              Major *
+            </Form.Text>
+            <Form.Control
+              as="select"
+              value={major}
+              name="major"
               required
               onChange={onChangeNewResultForm}
             >
               <option value="Department" muted>
-                Department
+                Major
               </option>
               <option value="ICT">ICT</option>
               <option value="PMAB">PMAB</option>
@@ -254,7 +298,6 @@ const AddResultModal = () => {
             </Form.Text>
             <Form.Control
               type="text"
-              placeholder="4 ETC"
               name="creditPoints"
               required
               aria-describedby="title-help"
@@ -262,8 +305,8 @@ const AddResultModal = () => {
               onChange={onChangeNewResultForm}
             />
           </Form.Group>
-         
-          <Form.Text id="title-help" muted>
+
+          <Form.Text className="main-title" muted>
             Evaluation
           </Form.Text>
           <Form.Group>
@@ -271,8 +314,7 @@ const AddResultModal = () => {
               Attendance
             </Form.Text>
             <Form.Control
-              type="text"
-              placeholder="Insert Attendance Grade Here"
+              type="number"
               name="attendance"
               aria-describedby="title-help"
               value={attendance}
@@ -284,9 +326,8 @@ const AddResultModal = () => {
               Exercises
             </Form.Text>
             <Form.Control
-              type="text"
+              type="number"
               name="exercises"
-              placeholder="Insert Exercise Grade Here"
               aria-describedby="title-help"
               value={exercises}
               onChange={onChangeNewResultForm}
@@ -297,9 +338,8 @@ const AddResultModal = () => {
               Assignment
             </Form.Text>
             <Form.Control
-              type="text"
+              type="number"
               name="assignment"
-              placeholder="Insert Assignment Grade Here"
               aria-describedby="title-help"
               value={assignment}
               onChange={onChangeNewResultForm}
@@ -310,9 +350,8 @@ const AddResultModal = () => {
               Reports
             </Form.Text>
             <Form.Control
-              type="text"
+              type="number"
               name="reports"
-              placeholder="Insert Reports Grade Here"
               aria-describedby="title-help"
               value={reports}
               onChange={onChangeNewResultForm}
@@ -320,12 +359,12 @@ const AddResultModal = () => {
           </Form.Group>
           <Form.Group>
             <Form.Text id="title-help" muted>
-              Midterm
+              Midterm *
             </Form.Text>
             <Form.Control
-              type="text"
+              type="number"
               name="midterm"
-              placeholder="Insert Midterm Grade Here"
+              required
               aria-describedby="title-help"
               value={midterm}
               onChange={onChangeNewResultForm}
@@ -334,12 +373,12 @@ const AddResultModal = () => {
 
           <Form.Group>
             <Form.Text id="title-help" muted>
-              Final
+              Final *
             </Form.Text>
             <Form.Control
-              type="text"
+              type="number"
               name="final"
-              placeholder="Insert Final Grade Here"
+              required
               aria-describedby="title-help"
               value={final}
               onChange={onChangeNewResultForm}
@@ -348,16 +387,42 @@ const AddResultModal = () => {
 
           <Form.Group>
             <Form.Text id="title-help" muted>
-              Total
+              Total *
             </Form.Text>
             <Form.Control
-              type="text"
+              type="number"
               name="total"
-              placeholder="Insert Total Grade Here"
+              required
               aria-describedby="title-help"
               value={total}
               onChange={onChangeNewResultForm}
             />
+          </Form.Group>
+
+          <Form.Group>
+            <Form.Text id="title-help" muted>
+              ECTS Grade
+            </Form.Text>
+            <Form.Control
+              as="select"
+              name="ectsGrade"
+              required
+              value={ectsGrade}
+              onChange={onChangeNewResultForm}
+            >
+              <option value="ECTS Grade" muted>
+                ECTS Grade *
+              </option>
+              <option value="A">A</option>
+              <option value="A -">A -</option>
+              <option value="B">B</option>
+              <option value="B -">B -</option>
+              <option value="C">C</option>
+              <option value="C -">C -</option>
+              <option value="D">D</option>
+              <option value="D -">D -</option>
+              <option value="F">F</option>
+            </Form.Control>
           </Form.Group>
 
           <Form.Group>
@@ -382,43 +447,36 @@ const AddResultModal = () => {
 
           <Form.Group>
             <Form.Text id="title-help" muted>
-              Date
+              Date of Exam
             </Form.Text>
             <Form.Control
-              type="text"
+              type="date"
               name="date"
-              placeholder="Date of Exam"
               aria-describedby="title-help"
               value={date}
               onChange={onChangeNewResultForm}
             />
           </Form.Group>
 
-          
           <Form.Group>
             <Form.Text id="title-help" muted>
-              Wave
+              Wave *
             </Form.Text>
             <Form.Control
               type="text"
               name="wave"
-              placeholder="2018-2021"
+              required
               aria-describedby="title-help"
               value={wave}
               onChange={onChangeNewResultForm}
             />
           </Form.Group>
-
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={closeDialog}>
             Cancel
           </Button>
-          <Button
-            variant="primary"
-            type="submit"
-            onClick={() => window.location.reload()}
-          >
+          <Button variant="primary" type="submit">
             Add Result
           </Button>
         </Modal.Footer>

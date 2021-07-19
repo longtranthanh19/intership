@@ -1,0 +1,51 @@
+###
+POST http://localhost:5000/api/courseStudent
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGMxYzRjMzJkMTM3YjU3ODQ4ODlmNWUiLCJyb2xlIjoiU3RhZmYiLCJpZCI6IiIsImlhdCI6MTYyMzQxMDY5M30.w2qC9-lP-j2FMA4_qo5x-qcHUsCDCjU4Uho4Ih-svvw
+
+{
+  "courseCode": "MATH 3.41",
+  "courseName": "Analysis & Algebric Structure",
+  "studentID": "BI9-108",
+  "studentName": "Nguyen Minh Hoang",
+  "dateOfBirth":"19/10/2000",
+  "year": "2nd Year",
+  "program": "Bachelor",
+  "department":"ICT",
+  "wave": "2021-2022"
+}
+
+### 
+GET http://localhost:5000/api/courseStudent/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGMxYzRjMzJkMTM3YjU3ODQ4ODlmNWUiLCJyb2xlIjoiU3RhZmYiLCJpZCI6IiIsImlhdCI6MTYyMzQxMDY5M30.w2qC9-lP-j2FMA4_qo5x-qcHUsCDCjU4Uho4Ih-svvw
+
+### 
+GET http://localhost:5000/api/courseStudent/2021-2022/MATH 3.41
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGMxYzRjMzJkMTM3YjU3ODQ4ODlmNWUiLCJyb2xlIjoiU3RhZmYiLCJpZCI6IiIsImlhdCI6MTYyMzQxMDY5M30.w2qC9-lP-j2FMA4_qo5x-qcHUsCDCjU4Uho4Ih-svvw
+
+### 
+GET http://localhost:5000/api/courseStudent/1st%20Year/Bachelor%204%20Year/2021-2022/ICT/Analysis%20&%20Algebric%20Structure
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGMxYzRjMzJkMTM3YjU3ODQ4ODlmNWUiLCJyb2xlIjoiU3RhZmYiLCJpZCI6IiIsImlhdCI6MTYyMzQxMDY5M30.w2qC9-lP-j2FMA4_qo5x-qcHUsCDCjU4Uho4Ih-svvw
+
+###
+PUT http://localhost:5000/api/courseStudent/60f3de599a35370264e67a78
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGMxZDJlM2RmNGUxNzJmOWNlNGE2M2YiLCJyb2xlIjoiTGVjdHVyZXIiLCJpZCI6IkwtMDMiLCJkZXBhcnRtZW50IjoiSUNUIiwiaWF0IjoxNjIzNjM5MTAyfQ.yQOBBftarFbKyKFgr8cd_lPhzwItmaZqCPl3Nd2CCiY
+
+{
+  "courseCode": "MATH 3.41",
+  "courseName": "Analysis & Algebric Structure",
+  "lecturerID": "L-03",
+  "lecturerName": "Doan Nhat Quang",
+  "studentID": "BI9-157",
+  "studentName": "Tran Thanh Long123",
+  "dateOfBirth":"19/10/2000",
+  "year": "2nd Year",
+  "program": "Bachelor",
+  "department":"ICT",
+  "wave": "2021-2022"
+}
+
+###
+DELETE http://localhost:5000/api/courseStudent/60f3ce15693c143f5c178cbf
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDliNzU5NmNjMDY1ZTUxNzQ4MzBiNTYiLCJpYXQiOjE2MjA5NjQ4Nzd9.VsRPLY0baRMgZIbADIw8ip5UfXIGsCee4zAEfMxAB7E

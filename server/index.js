@@ -10,6 +10,7 @@ const studentRouter = require("./routes/student");
 const lecturerRouter = require("./routes/lecturer");
 const courseRouter = require("./routes/course");
 const resultRouter = require("./routes/results");
+const courseStudentRouter = require("./routes/courseStudent");
 
 // Connect DB
 const connectDB = async () => {
@@ -34,7 +35,6 @@ const connectDB = async () => {
 connectDB();
 
 // Router
-
 const app = express();
 app.use(express.json());
 app.use(cors());
@@ -46,6 +46,7 @@ app.use("/api/student/", studentRouter);
 app.use("/api/lecturer/", lecturerRouter);
 app.use("/api/course/", courseRouter);
 app.use("/api/result/", resultRouter);
+app.use("/api/courseStudent/", courseStudentRouter);
 
 const PORT = 5000;
 

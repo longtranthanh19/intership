@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const verifyToken = require("../middleware/auth");
-// const isStaff = require("../middleware/isStaff");
+const isStaff = require("../middleware/isStaff");
 
 const Lecturer = require("../models/Lecturer");
 
@@ -9,7 +9,7 @@ const Lecturer = require("../models/Lecturer");
 // @desc Create Student
 // @access Private
 
-router.post("/", verifyToken, async (req, res) => {
+router.post("/", verifyToken, isStaff, async (req, res) => {
   const {
     lecturerID,
     lecturerName,
@@ -29,6 +29,19 @@ router.post("/", verifyToken, async (req, res) => {
       .json({ success: false, message: "LecturerID is required" });
 
   try {
+    const id = await Lecturer.findOne({ lecturerID });
+    const lecturerEmail = await Lecturer.findOne({ email });
+
+    if (id)
+      return res
+        .status(400)
+        .json({ success: false, message: "Lecturer ID already taken" });
+
+    if (lecturerEmail)
+      return res
+        .status(400)
+        .json({ success: false, message: "Email already taken" });
+
     const newLecturer = new Lecturer({
       lecturerID,
       lecturerName,
@@ -68,10 +81,25 @@ router.get("/", verifyToken, async (req, res) => {
   }
 });
 
+// @route GET api/course
+// @desc Get Course Profile By ID
+// @access Private
+
+router.get("/:department", verifyToken, async (req, res) => {
+  const department = req.params.department;
+  try {
+    const lecturerByDepartment = await Lecturer.find({ department: department });
+    res.json({ success: true, lecturers: lecturerByDepartment });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ success: false, message: "Internal server error" });
+  }
+});
+
 // @route PUT api/lecturer
 // @desc Update Lecturer Info
 // @access Private
-router.put("/:id", verifyToken, async (req, res) => {
+router.put("/:id", verifyToken, isStaff, async (req, res) => {
   const {
     lecturerID,
     lecturerName,
@@ -130,9 +158,9 @@ router.put("/:id", verifyToken, async (req, res) => {
 });
 
 // @route DELETE api/lecturer
-// @desc Delete Lecuter
+// @desc Delete Lecturer
 // @access Private
-router.delete("/:id", verifyToken, async (req, res) => {
+router.delete("/:id", verifyToken, isStaff, async (req, res) => {
   try {
     const postDeleteCondition = { _id: req.params.id };
     const deletedLecturer = await Lecturer.findOneAndDelete(

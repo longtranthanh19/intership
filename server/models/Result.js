@@ -18,6 +18,10 @@ const resultSchema = new Schema({
     type: String,
     required: true,
   },
+  lecturerID: {
+    type: String,
+    required: true,
+  },
   lecturerName: {
     type: String,
     required: true,
@@ -27,15 +31,21 @@ const resultSchema = new Schema({
     required: true,
     enum: ["1st Year", "2nd Year", "3rd Year"],
   },
-  program: {
+  levelOfTraining: {
     type: String,
     required: true,
-    enum: ["Bachelor", "Master", "PhD"],
+    enum: ["Bachelor 4 Year", "Bachelor", "Master", "PhD"],
   },
-  department: {
+  typeOfTraining: {
+    type: String,
+    required: true,
+    enum: ["Full-Time", "Part-Time"],
+  },
+  major: {
     type: String,
     required: true,
     enum: [
+      "SCIENCE",
       "ICT",
       "PMAB",
       "NANO",
@@ -74,6 +84,10 @@ const resultSchema = new Schema({
     required: true,
   },
   total: {
+    type: String,
+    required: true,
+  },
+  ectsGrade: {
     type: String,
     required: true,
   },

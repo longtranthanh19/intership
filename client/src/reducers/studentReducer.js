@@ -1,8 +1,8 @@
 import {
   STUDENTS_LOADED_SUCCESS,
   STUDENTS_LOADED_FAILED,
-  STUDENT_PROFILE_LOADED_SUCCESS,
-  STUDENT_PROFILE_LOADED_FAILED,
+  STUDENT_LOADED_SUCCESS,
+  STUDENT_LOADED_FAILED,
   ADD_STUDENT,
   DELETE_STUDENT,
   FIND_STUDENT,
@@ -19,25 +19,25 @@ export const studentReducer = (state, action) => {
         studentsLoading: false,
       };
 
-    case STUDENT_PROFILE_LOADED_SUCCESS:
-      return {
-        ...state,
-        studentProfile: payload,
-        studentsLoading: false,
-      };
-
-    case STUDENT_PROFILE_LOADED_FAILED:
-      return {
-        ...state,
-        studentProfile: payload,
-        studentsLoading: false,
-      };
-
     case STUDENTS_LOADED_FAILED:
       return {
         ...state,
         students: payload,
         studentsLoading: false,
+      };
+
+    case STUDENT_LOADED_SUCCESS:
+      return {
+        ...state,
+        student: payload,
+        studentLoading: false,
+      };
+
+    case STUDENT_LOADED_FAILED:
+      return {
+        ...state,
+        student: payload,
+        studentLoading: false,
       };
 
     case ADD_STUDENT:

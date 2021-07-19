@@ -20,6 +20,7 @@
 .container {
   max-width: 1555px;
 }
+
 .mr-2 {
   margin: 10px;
 }
@@ -57,7 +58,7 @@
   border-radius: 10px;
 }
 
-.btn-logout{
+.btn-logout {
   border-radius: 5px;
   font-weight: bold;
 }
@@ -87,17 +88,23 @@
 }
 
 /* Main Content */
-.col{
-  padding: 10px;
-}
-.main-title{
+
+.main-title {
   font-weight: bold;
 }
 
-.main-content-title{
+.main-content-title {
   font-weight: bold;
 }
 
+.uppercase {
+  text-transform: uppercase;
+}
+
+/* Card  */
+.shadow {
+  height: 100%;
+}
 /* Post button */
 .post-button {
   padding-top: 0;
@@ -106,7 +113,7 @@
 }
 
 .post-title {
-  width: 150%;
+  width: 100%;
 }
 
 .post-button:hover {

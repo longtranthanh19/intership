@@ -51,9 +51,14 @@ const AddLecturerModal = () => {
     resetAddLecturerData();
     setLecturerShowToast({
       show: true,
-      message,
+      message: success ? `Add lecturer '${lecturerName}' successful` : message,
       type: success ? "success" : "danger",
     });
+    if (success) {
+      setTimeout(() => {
+        window.location.reload();
+      }, 1500);
+    }
   };
 
   const resetAddLecturerData = () => {
@@ -114,7 +119,8 @@ const AddLecturerModal = () => {
               Phone *
             </Form.Text>
             <Form.Control
-              type="text"
+              type="tel"
+              pattern="[0-9]{3}[0-9]{3}[0-9]{4}"
               placeholder="0912345678"
               name="phoneNumber"
               required
@@ -148,7 +154,7 @@ const AddLecturerModal = () => {
               Date Of Birth
             </Form.Text>
             <Form.Control
-              type="text"
+              type="date"
               placeholder="Date Of Birth *"
               name="dateOfBirth"
               required
@@ -183,7 +189,7 @@ const AddLecturerModal = () => {
               Email *
             </Form.Text>
             <Form.Control
-              type="text"
+              type="email"
               placeholder="abc@gmail.com"
               name="email"
               required
@@ -242,7 +248,6 @@ const AddLecturerModal = () => {
           <Button
             variant="primary"
             type="submit"
-            onClick={() => window.location.reload()}
           >
             Add Lecturer
           </Button>

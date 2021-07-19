@@ -20,6 +20,11 @@ const AddUserModal = () => {
 
   const { id, username, password, role, userName } = newUser;
 
+  const [showPassword, setShowPassword] = useState(false);
+
+  const handleShowPassword = () =>
+    setShowPassword((prevShowPassword) => !prevShowPassword);
+
   const onChangeNewUserForm = (event) =>
     setNewUser({ ...newUser, [event.target.name]: event.target.value });
 
@@ -33,9 +38,14 @@ const AddUserModal = () => {
     resetAddUserData();
     setUserShowToast({
       show: true,
-      message,
+      message: success ? `Add user '${userName}' successful` : message,
       type: success ? "success" : "danger",
     });
+    if (success) {
+      setTimeout(() => {
+        window.location.reload();
+      }, 1500);
+    }
   };
 
   const resetAddUserData = () => {
@@ -57,7 +67,6 @@ const AddUserModal = () => {
       <Form onSubmit={onSubmit}>
         <Modal.Body>
           {/* Student ID */}
-
           <Form.Group>
             <Form.Text id="title-help" muted>
               User ID
@@ -93,13 +102,18 @@ const AddUserModal = () => {
               Password *
             </Form.Text>
             <Form.Control
-              type="password"
+              type={showPassword ? "text" : "password"}
               placeholder="Enter Password"
               name="password"
               required
               aria-describedby="title-help"
               value={password}
               onChange={onChangeNewUserForm}
+            />
+            <Form.Check
+              type="checkbox"
+              label="Show password"
+              onClick={handleShowPassword}
             />
           </Form.Group>
 

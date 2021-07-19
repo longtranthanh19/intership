@@ -4,6 +4,8 @@ import {
   apiUrl,
   USERS_LOADED_SUCCESS,
   USERS_LOADED_FAILED,
+  USER_LOADED_SUCCESS,
+  USER_LOADED_FAILED,
   ADD_USER,
   DELETE_USER,
   UPDATE_USER,
@@ -19,6 +21,7 @@ const UserContextProvider = ({ children }) => {
     user: null,
     users: [],
     usersLoading: true,
+    userLoading: true,
   });
 
   const [showAddUserModal, setShowAddUserModal] = useState(false);
@@ -37,6 +40,18 @@ const UserContextProvider = ({ children }) => {
   const getUsers = async () => {
     try {
       const response = await axios.get(`${apiUrl}/user`);
+      if (response.data.success) {
+        dispatch({ type: USERS_LOADED_SUCCESS, payload: response.data.users });
+      }
+    } catch (error) {
+      dispatch({ type: USERS_LOADED_FAILED });
+    }
+  };
+
+  // Get Users by role
+  const getUsersRole = async (role) => {
+    try {
+      const response = await axios.get(`${apiUrl}/user/${role}`);
       if (response.data.success) {
         dispatch({ type: USERS_LOADED_SUCCESS, payload: response.data.users });
       }
@@ -106,6 +121,7 @@ const UserContextProvider = ({ children }) => {
   const userContextData = {
     userState,
     getUsers,
+    getUsersRole,
     showAddUserModal,
     setShowAddUserModal,
     addUser,

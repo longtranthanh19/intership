@@ -4,8 +4,6 @@ import {
   apiUrl,
   RESULTS_LOADED_SUCCESS,
   RESULTS_LOADED_FAILED,
-  RESULT_PROFILE_LOADED_SUCCESS,
-  RESULT_PROFILE_LOADED_FAILED,
   ADD_RESULT,
   DELETE_RESULT,
   FIND_RESULT,
@@ -19,9 +17,11 @@ const ResultContextProvider = ({ children }) => {
   // State
   const [resultState, dispatch] = useReducer(resultReducer, {
     studentResult: null,
+    lecturerResults: null,
     result: null,
     results: [],
     resultsLoading: true,
+    resultLoading: true,
   });
 
   const [showAddResultModal, setShowAddResultModal] = useState(false);
@@ -57,12 +57,133 @@ const ResultContextProvider = ({ children }) => {
       const response = await axios.get(`${apiUrl}/result/getResult`);
       if (response.data.success) {
         dispatch({
-          type: RESULT_PROFILE_LOADED_SUCCESS,
-          payload: response.data.studentResult,
+          type: RESULTS_LOADED_SUCCESS,
+          payload: response.data.results,
         });
       }
     } catch (error) {
-      dispatch({ type: RESULT_PROFILE_LOADED_FAILED });
+      dispatch({ type: RESULTS_LOADED_FAILED });
+    }
+  };
+
+  // Get Student Result
+  const getResultStudent = async (studentID) => {
+    try {
+      const response = await axios.get(`${apiUrl}/result/${studentID}`);
+      if (response.data.success) {
+        dispatch({
+          type: RESULTS_LOADED_SUCCESS,
+          payload: response.data.results,
+        });
+      }
+    } catch (error) {
+      dispatch({ type: RESULTS_LOADED_FAILED });
+    }
+  };
+
+  // Get Lecturer Result
+  const getResultLecturer = async () => {
+    try {
+      const response = await axios.get(`${apiUrl}/result/getResultByLecturer`);
+      if (response.data.success) {
+        dispatch({
+          type: RESULTS_LOADED_SUCCESS,
+          payload: response.data.results,
+        });
+      }
+    } catch (error) {
+      dispatch({ type: RESULTS_LOADED_FAILED });
+    }
+  };
+
+  // Get Result Wave
+  const getResultsWave = async (year, levelOfTraining) => {
+    try {
+      const response = await axios.get(
+        `${apiUrl}/result/${year}/${levelOfTraining}`
+      );
+      if (response.data.success) {
+        dispatch({
+          type: RESULTS_LOADED_SUCCESS,
+          payload: response.data.results,
+        });
+      }
+    } catch (error) {
+      dispatch({ type: RESULTS_LOADED_FAILED });
+    }
+  };
+
+  // Get Result Wave
+  const getResultsDepartment = async (year, levelOfTraining, wave) => {
+    try {
+      const response = await axios.get(
+        `${apiUrl}/result/${year}/${levelOfTraining}/${wave}`
+      );
+      if (response.data.success) {
+        dispatch({
+          type: RESULTS_LOADED_SUCCESS,
+          payload: response.data.results,
+        });
+      }
+    } catch (error) {
+      dispatch({ type: RESULTS_LOADED_FAILED });
+    }
+  };
+
+  // Get Result Wave
+  const getResultsCourse = async (year, levelOfTraining, wave, major) => {
+    try {
+      const response = await axios.get(
+        `${apiUrl}/result/${year}/${levelOfTraining}/${wave}/${major}`
+      );
+      if (response.data.success) {
+        dispatch({
+          type: RESULTS_LOADED_SUCCESS,
+          payload: response.data.results,
+        });
+      }
+    } catch (error) {
+      dispatch({ type: RESULTS_LOADED_FAILED });
+    }
+  };
+
+  // Get Result Detail
+  const getResultsDetail = async (
+    year,
+    levelOfTraining,
+    wave,
+    major,
+    courseName
+  ) => {
+    try {
+      const response = await axios.get(
+        `${apiUrl}/result/${year}/${levelOfTraining}/${wave}/${major}/${courseName}`
+      );
+      if (response.data.success) {
+        dispatch({
+          type: RESULTS_LOADED_SUCCESS,
+          payload: response.data.results,
+        });
+      }
+    } catch (error) {
+      dispatch({ type: RESULTS_LOADED_FAILED });
+    }
+  };
+
+  // Get Result Detail
+  const getResultsExport = async (wave, courseCode) => {
+    try {
+      const response = await axios.get(
+        `${apiUrl}/result/export/${wave}/${courseCode}`
+      );
+      if (response.data.success) {
+        dispatch({
+          type: RESULTS_LOADED_SUCCESS,
+          payload: response.data.results,
+        });
+      }
+    } catch (error) {
+      dispatch({ type: RESULTS_LOADED_FAILED });
     }
   };
 
@@ -130,6 +251,13 @@ const ResultContextProvider = ({ children }) => {
     resultState,
     getResults,
     getResultProfile,
+    getResultLecturer,
+    getResultsWave,
+    getResultsDepartment,
+    getResultsCourse,
+    getResultsDetail,
+    getResultStudent,
+    getResultsExport,
     showAddResultModal,
     setShowAddResultModal,
     addResult,

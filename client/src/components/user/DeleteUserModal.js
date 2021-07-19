@@ -30,9 +30,16 @@ const DeleteUserModal = ({ _id }) => {
     setShowDeleteUserModal(false);
     setUserShowToast({
       show: true,
-      message,
+      message: success
+      ? `Delete user '${user.userName}' successful`
+      : message,
       type: success ? "success" : "danger",
     });
+    if(success) {
+      setTimeout(() => {
+        window.location.reload();
+      }, 1500);
+    }
   };
 
   return (
@@ -48,7 +55,6 @@ const DeleteUserModal = ({ _id }) => {
           <Button
             variant="primary"
             type="submit"
-            onClick={() => window.location.reload()}
           >
             Delete
           </Button>

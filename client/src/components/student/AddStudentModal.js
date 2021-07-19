@@ -19,12 +19,15 @@ const AddStudentModal = () => {
     studentName: "",
     gender: "",
     dateOfBirth: "",
-    dateOfAdmission: "",
+    intake: "",
     email: "",
     phoneNumber: "",
     address: "",
-    department: "",
-    session: "",
+    levelOfTraining: "",
+    typeOfTraining: "",
+    major: "",
+    session: "Gen ",
+    wave: "",
   });
 
   const {
@@ -32,12 +35,15 @@ const AddStudentModal = () => {
     studentName,
     gender,
     dateOfBirth,
-    dateOfAdmission,
+    intake,
     email,
     phoneNumber,
     address,
-    department,
+    levelOfTraining,
+    typeOfTraining,
+    major,
     session,
+    wave,
   } = newStudent;
 
   const onChangeNewStudentForm = (event) =>
@@ -53,9 +59,14 @@ const AddStudentModal = () => {
     resetAddStudentData();
     setStudentShowToast({
       show: true,
-      message,
+      message: success ? `Add student '${studentName}' successful` : message,
       type: success ? "success" : "danger",
     });
+    if(success) {
+      setTimeout(() => {
+        window.location.reload();
+      }, 1500);
+    }
   };
 
   const resetAddStudentData = () => {
@@ -64,11 +75,13 @@ const AddStudentModal = () => {
       studentName: "",
       gender: "",
       dateOfBirth: "",
-      dateOfAdmission: "",
+      intake: "",
       email: "",
       phoneNumber: "",
       address: "",
-      department: "",
+      levelOfTraining: "",
+      typeOfTraining: "",
+      major: "",
       session: "",
     });
     setShowAddStudentModal(false);
@@ -89,11 +102,11 @@ const AddStudentModal = () => {
             </Form.Text>
             <Form.Control
               type="text"
-              placeholder="BI9-157"
+              class="uppercase"
               name="studentID"
               required
               aria-describedby="title-help"
-              value={studentID}
+              value={studentID.toUpperCase()}
               onChange={onChangeNewStudentForm}
             />
           </Form.Group>
@@ -104,7 +117,6 @@ const AddStudentModal = () => {
             </Form.Text>
             <Form.Control
               type="text"
-              placeholder="Nguyen Van A"
               name="studentName"
               required
               aria-describedby="title-help"
@@ -118,8 +130,8 @@ const AddStudentModal = () => {
               Phone *
             </Form.Text>
             <Form.Control
-              type="text"
-              placeholder="0912345678"
+              type="tel"
+              pattern="[0-9]{3}[0-9]{3}[0-9]{4}"
               name="phoneNumber"
               required
               aria-describedby="title-help"
@@ -152,8 +164,7 @@ const AddStudentModal = () => {
               Date Of Birth
             </Form.Text>
             <Form.Control
-              type="text"
-              placeholder="Date Of Birth *"
+              type="date"
               name="dateOfBirth"
               required
               aria-describedby="title-help"
@@ -164,15 +175,14 @@ const AddStudentModal = () => {
 
           <Form.Group>
             <Form.Text id="title-help" muted>
-              Date of Admission *
+              Intake *
             </Form.Text>
             <Form.Control
               type="text"
-              placeholder="2018"
-              name="dateOfAdmission"
+              name="intake"
               required
               aria-describedby="title-help"
-              value={dateOfAdmission}
+              value={intake}
               onChange={onChangeNewStudentForm}
             />
           </Form.Group>
@@ -182,8 +192,7 @@ const AddStudentModal = () => {
               Email *
             </Form.Text>
             <Form.Control
-              type="text"
-              placeholder="abc@gmail.com"
+              type="email"
               name="email"
               required
               aria-describedby="title-help"
@@ -198,7 +207,6 @@ const AddStudentModal = () => {
             </Form.Text>
             <Form.Control
               type="text"
-              placeholder="18B Hoang Quoc Viet"
               name="address"
               required
               aria-describedby="title-help"
@@ -206,20 +214,62 @@ const AddStudentModal = () => {
               onChange={onChangeNewStudentForm}
             />
           </Form.Group>
+
           <Form.Group>
             <Form.Text id="title-help" muted>
-              Deparment *
+              Level of Training *
             </Form.Text>
             <Form.Control
               as="select"
               placeholder="Department"
-              value={department}
-              name="department"
+              value={levelOfTraining}
+              name="levelOfTraining"
               required
               onChange={onChangeNewStudentForm}
             >
               <option value="Department" muted>
-                Department
+              Level of Training
+              </option>
+              <option value="Bachelor 4 Year">Bachelor 4 Year</option>
+              <option value="Bachelor">Bachelor</option>
+              <option value="Master">Master</option>
+              <option value="PhD">PhD</option>
+            </Form.Control>
+          </Form.Group>
+
+          
+          <Form.Group>
+            <Form.Text id="title-help" muted>
+              Type of Training *
+            </Form.Text>
+            <Form.Control
+              as="select"
+              value={typeOfTraining}
+              name="typeOfTraining"
+              required
+              onChange={onChangeNewStudentForm}
+            >
+              <option value="Department" muted>
+                Type of Training
+              </option>
+              <option value="Full-Time">Full-Time</option>
+              <option value="Part-Time">Part-Time</option>
+            </Form.Control>
+          </Form.Group>
+
+          <Form.Group>
+            <Form.Text id="title-help" muted>
+              Major *
+            </Form.Text>
+            <Form.Control
+              as="select"
+              value={major}
+              name="major"
+              required
+              onChange={onChangeNewStudentForm}
+            >
+              <option value="Department" muted>
+                Major
               </option>
               <option value="ICT">ICT</option>
               <option value="PMAB">PMAB</option>
@@ -236,15 +286,28 @@ const AddStudentModal = () => {
 
           <Form.Group>
             <Form.Text id="title-help" muted>
-              Session
+              Session *
             </Form.Text>
             <Form.Control
               type="text"
-              placeholder="Gen 9"
               name="session"
               required
               aria-describedby="title-help"
               value={session}
+              onChange={onChangeNewStudentForm}
+            />
+          </Form.Group>
+
+          <Form.Group>
+            <Form.Text id="title-help" muted>
+              Wave *
+            </Form.Text>
+            <Form.Control
+              type="text"
+              name="wave"
+              required
+              aria-describedby="title-help"
+              value={wave}
               onChange={onChangeNewStudentForm}
             />
           </Form.Group>

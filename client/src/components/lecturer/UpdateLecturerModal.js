@@ -48,15 +48,15 @@ const UpdateStudentModal = () => {
     setShowUpdateLecturerModal(false);
     setLecturerShowToast({
       show: true,
-      message,
+      message: success ? `Update lecturer '${lecturerName}' information successful` : message,
       type: success ? "success" : "danger",
     });
+    if(success) {
+      setTimeout(() => {
+        window.location.reload();
+      }, 1500);
+    }
   };
-
-  // const resetAddPostData = () => {
-  // 	setNewPost({ title: '', description: '', url: '', status: 'TO LEARN' })
-  // 	setShowAddPostModal(false)
-  // }
 
   return (
     <Modal show={showUpdateLecturerModal} onHide={closeDialog}>
@@ -100,7 +100,8 @@ const UpdateStudentModal = () => {
               Phone *
             </Form.Text>
             <Form.Control
-              type="text"
+              type="tel"
+              pattern="[0-9]{3}[0-9]{3}[0-9]{4}"
               placeholder="0912345678"
               name="phoneNumber"
               required
@@ -134,7 +135,7 @@ const UpdateStudentModal = () => {
               Date Of Birth
             </Form.Text>
             <Form.Control
-              type="text"
+              type="date"
               placeholder="Date Of Birth *"
               name="dateOfBirth"
               required
@@ -169,7 +170,7 @@ const UpdateStudentModal = () => {
               Email *
             </Form.Text>
             <Form.Control
-              type="text"
+              type="email"
               placeholder="abc@gmail.com"
               name="email"
               required
@@ -228,7 +229,6 @@ const UpdateStudentModal = () => {
           <Button
             variant="primary"
             type="submit"
-            onClick={() => window.location.reload()}
           >
             Update
           </Button>

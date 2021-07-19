@@ -24,12 +24,15 @@ const UpdateStudentModal = () => {
     studentName,
     gender,
     dateOfBirth,
-    dateOfAdmission,
+    intake,
     email,
     phoneNumber,
     address,
-    department,
+    levelOfTraining,
+    typeOfTraining,
+    major,
     session,
+    wave,
   } = updatedStudent;
 
   const onChangeUpdatedStudentForm = (event) =>
@@ -49,15 +52,17 @@ const UpdateStudentModal = () => {
     setShowUpdateStudentModal(false);
     setStudentShowToast({
       show: true,
-      message,
+      message: success
+        ? `Update student ${studentName}'s information successful`
+        : message,
       type: success ? "success" : "danger",
     });
+    if (success) {
+      setTimeout(() => {
+        window.location.reload();
+      }, 1500);
+    }
   };
-
-  // const resetAddPostData = () => {
-  // 	setNewPost({ title: '', description: '', url: '', status: 'TO LEARN' })
-  // 	setShowAddPostModal(false)
-  // }
 
   return (
     <Modal show={showUpdateStudentModal} onHide={closeDialog}>
@@ -101,10 +106,9 @@ const UpdateStudentModal = () => {
               Phone *
             </Form.Text>
             <Form.Control
-              type="number"
-              maxlength="10"
+              type="tel"
               placeholder="0912345678"
-              pattern="/\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/"
+              pattern="[0-9]{3}[0-9]{3}[0-9]{4}"
               name="phoneNumber"
               required
               aria-describedby="title-help"
@@ -137,7 +141,7 @@ const UpdateStudentModal = () => {
               Date Of Birth
             </Form.Text>
             <Form.Control
-              type="text"
+              type="date"
               placeholder="Date Of Birth *"
               name="dateOfBirth"
               required
@@ -149,15 +153,14 @@ const UpdateStudentModal = () => {
 
           <Form.Group>
             <Form.Text id="title-help" muted>
-              Date of Admission *
+              Wave *
             </Form.Text>
             <Form.Control
               type="text"
-              placeholder="2018"
-              name="dateOfAdmission"
+              name="intake"
               required
               aria-describedby="title-help"
-              value={dateOfAdmission}
+              value={intake}
               onChange={onChangeUpdatedStudentForm}
             />
           </Form.Group>
@@ -167,7 +170,7 @@ const UpdateStudentModal = () => {
               Email *
             </Form.Text>
             <Form.Control
-              type="text"
+              type="email"
               placeholder="abc@gmail.com"
               name="email"
               required
@@ -193,13 +196,53 @@ const UpdateStudentModal = () => {
           </Form.Group>
           <Form.Group>
             <Form.Text id="title-help" muted>
-              Deparment *
+              Level of Training *
             </Form.Text>
             <Form.Control
               as="select"
               placeholder="Department"
-              value={department}
-              name="department"
+              value={levelOfTraining}
+              name="levelOfTraining"
+              required
+              onChange={onChangeUpdatedStudentForm}
+            >
+              <option value="Department" muted>
+                Level of Training
+              </option>
+              <option value="Bachelor 4 Year">Bachelor 4 Year</option>
+              <option value="Bachelor">Bachelor</option>
+              <option value="Master">Master</option>
+              <option value="PhD">PhD</option>
+            </Form.Control>
+          </Form.Group>
+
+          <Form.Group>
+            <Form.Text id="title-help" muted>
+              Type of Training *
+            </Form.Text>
+            <Form.Control
+              as="select"
+              value={typeOfTraining}
+              name="typeOfTraining"
+              required
+              onChange={onChangeUpdatedStudentForm}
+            >
+              <option value="Department" muted>
+                Type of Training
+              </option>
+              <option value="Full-Time">Full-Time</option>
+              <option value="Part-Time">Part-Time</option>
+            </Form.Control>
+          </Form.Group>
+
+          <Form.Group>
+            <Form.Text id="title-help" muted>
+              Major *
+            </Form.Text>
+            <Form.Control
+              as="select"
+              value={major}
+              name="major"
               required
               onChange={onChangeUpdatedStudentForm}
             >
@@ -221,7 +264,7 @@ const UpdateStudentModal = () => {
 
           <Form.Group>
             <Form.Text id="title-help" muted>
-              Session
+              Session *
             </Form.Text>
             <Form.Control
               type="text"
@@ -233,16 +276,27 @@ const UpdateStudentModal = () => {
               onChange={onChangeUpdatedStudentForm}
             />
           </Form.Group>
+
+          <Form.Group>
+            <Form.Text id="title-help" muted>
+              Wave *
+            </Form.Text>
+            <Form.Control
+              type="text"
+              name="wave"
+              required
+              aria-describedby="title-help"
+              value={wave}
+              onChange={onChangeUpdatedStudentForm}
+            />
+          </Form.Group>
+
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={closeDialog}>
             Cancel
           </Button>
-          <Button
-            variant="primary"
-            type="submit"
-            onClick={() => window.location.reload()}
-          >
+          <Button variant="primary" type="submit">
             Update
           </Button>
         </Modal.Footer>

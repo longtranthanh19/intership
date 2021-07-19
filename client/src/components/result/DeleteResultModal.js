@@ -30,9 +30,16 @@ const DeleteResultModal = ({ _id }) => {
     setShowDeleteResultModal(false);
     setResultShowToast({
       show: true,
-      message,
+      message: success
+        ? `Delete ${result.studentName}'s result successful`
+        : message,
       type: success ? "success" : "danger",
     });
+    if (success) {
+      setTimeout(() => {
+        window.location.reload();
+      }, 2000);
+    }
   };
 
   return (
@@ -48,7 +55,6 @@ const DeleteResultModal = ({ _id }) => {
           <Button
             variant="primary"
             type="submit"
-            onClick={() => window.location.reload()}
           >
             Delete
           </Button>

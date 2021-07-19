@@ -5,8 +5,8 @@ POST http://localhost:5000/api/auth/login
 Content-Type: application/json
 
 {
-    "username": "student13",
-    "password": "student"
+    "username": "staff",
+    "password": "staff"
 }
 
 ### 

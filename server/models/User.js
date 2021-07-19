@@ -24,6 +24,21 @@ const UserSchema = new Schema({
     required: true,
     enum: ["Student", "Lecturer", "Staff"],
   },
+  department: {
+    type: String,
+    enum: [
+      "ICT",
+      "PMAB",
+      "NANO",
+      "WEO",
+      "MST",
+      "CS",
+      "CHEM",
+      "FST",
+      "AMSN",
+      "EER",
+    ],
+  },
   createdAt: {
     type: Date,
     default: Date.now,

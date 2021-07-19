@@ -103,7 +103,12 @@ router.post("/login", async (req, res) => {
     // Return token
 
     const accessToken = jwt.sign(
-      { userId: user._id, role: user.role, id: user.id },
+      {
+        userId: user._id,
+        role: user.role,
+        id: user.id,
+        department: user.department,
+      },
       process.env.ACCESS_TOKEN_SECRET
     );
     res.json({

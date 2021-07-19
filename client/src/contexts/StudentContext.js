@@ -1,12 +1,11 @@
-import { createContext, useReducer, useState, useContext } from "react";
+import { createContext, useReducer, useState } from "react";
 import { studentReducer } from "../reducers/studentReducer";
-import { AuthContext } from "../contexts/AuthContext";
 import {
   apiUrl,
   STUDENTS_LOADED_SUCCESS,
   STUDENTS_LOADED_FAILED,
-  STUDENT_PROFILE_LOADED_SUCCESS,
-  STUDENT_PROFILE_LOADED_FAILED,
+  STUDENT_LOADED_SUCCESS,
+  STUDENT_LOADED_FAILED,
   ADD_STUDENT,
   DELETE_STUDENT,
   FIND_STUDENT,
@@ -19,10 +18,12 @@ export const StudentContext = createContext();
 const StudentContextProvider = ({ children }) => {
   // State
   const [studentState, dispatch] = useReducer(studentReducer, {
+    studentDepartment: null,
     studentProfile: null,
     student: null,
     students: [],
     studentsLoading: true,
+    studentLoading: true,
   });
 
   const [showAddStudentModal, setShowAddStudentModal] = useState(false);
@@ -36,7 +37,6 @@ const StudentContextProvider = ({ children }) => {
     message: "",
     type: "null",
   });
-
 
   // Get All Posts
   const getStudents = async () => {
@@ -59,12 +59,42 @@ const StudentContextProvider = ({ children }) => {
       const response = await axios.get(`${apiUrl}/student/getProfile`);
       if (response.data.success) {
         dispatch({
-          type: STUDENT_PROFILE_LOADED_SUCCESS,
-          payload: response.data.studentProfile,
+          type: STUDENT_LOADED_SUCCESS,
+          payload: response.data.student,
         });
       }
     } catch (error) {
-      dispatch({ type: STUDENT_PROFILE_LOADED_FAILED });
+      dispatch({ type: STUDENT_LOADED_FAILED });
+    }
+  };
+
+    // Get Student Profile
+    const getStudentByID = async (studentID) => {
+      try {
+        const response = await axios.get(`${apiUrl}/student/${studentID}`);
+        if (response.data.success) {
+          dispatch({
+            type: STUDENT_LOADED_SUCCESS,
+            payload: response.data.student,
+          });
+        }
+      } catch (error) {
+        dispatch({ type: STUDENT_LOADED_FAILED });
+      }
+    };
+
+  // Get Student Department
+  const getStudentDetail = async (major, session) => {
+    try {
+      const response = await axios.get(`${apiUrl}/student/${major}/${session}`);
+      if (response.data.success) {
+        dispatch({
+          type: STUDENTS_LOADED_SUCCESS,
+          payload: response.data.students,
+        });
+      }
+    } catch (error) {
+      dispatch({ type: STUDENTS_LOADED_FAILED });
     }
   };
 
@@ -73,10 +103,8 @@ const StudentContextProvider = ({ children }) => {
     try {
       const response = await axios.post(`${apiUrl}/student`, newStudent);
       if (response.data.success) {
-        // window.location.reload();
         console.log(response.data.success);
         dispatch({ type: ADD_STUDENT, payload: response.data.student });
-        console.log(response.data);
         return response.data;
       }
     } catch (error) {
@@ -85,6 +113,14 @@ const StudentContextProvider = ({ children }) => {
         ? error.response.data
         : { success: false, message: "Server error" };
     }
+  };
+
+  // Find student when user is updating student
+  const findStudent = (studentId) => {
+    const student = studentState.students.find(
+      (student) => student._id === studentId
+    );
+    dispatch({ type: FIND_STUDENT, payload: student });
   };
 
   // Delete Student
@@ -105,15 +141,7 @@ const StudentContextProvider = ({ children }) => {
     }
   };
 
-  // Find post when user is updating post
-  const findStudent = (studentId) => {
-    const student = studentState.students.find(
-      (student) => student._id === studentId
-    );
-    dispatch({ type: FIND_STUDENT, payload: student });
-  };
-
-  // Update post
+  // Update Student
   const updateStudent = async (updatedStudent) => {
     try {
       const response = await axios.put(
@@ -136,6 +164,8 @@ const StudentContextProvider = ({ children }) => {
     studentState,
     getStudents,
     getStudentProfile,
+    getStudentDetail,
+    getStudentByID,
     showAddStudentModal,
     setShowAddStudentModal,
     addStudent,

@@ -1,67 +1,140 @@
 ###
 POST http://localhost:5000/api/course
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDliNzU5NmNjMDY1ZTUxNzQ4MzBiNTYiLCJpYXQiOjE2MjA5NjQ4Nzd9.VsRPLY0baRMgZIbADIw8ip5UfXIGsCee4zAEfMxAB7E
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGMxYzRjMzJkMTM3YjU3ODQ4ODlmNWUiLCJyb2xlIjoiU3RhZmYiLCJpZCI6IiIsImlhdCI6MTYyMzQxMDY5M30.w2qC9-lP-j2FMA4_qo5x-qcHUsCDCjU4Uho4Ih-svvw
 
 {
-  "courseCode": "MATH 2.2",
-  "courseName": "ANALYSIS& ALGEBRAIC STRUCTURES",
-  "lecturerID": "L-01",
+  "courseCode": "MATH 3.41",
+  "courseName": "Analysis & Algebric Structure",
+  "lecturerID": "L-03",
+  "lecturerName": "Doan Nhat Quang",
+  "year": "1st Year",
+  "program": "Bachelor 4 Year",
+  "department":"ICT",
+  "creditPoints": "3 ECTS",
+  "timeCommitment": "36",
+  "lecture": "20",
+  "tutorial": "16",
+  "practical": "0",
+  "attendance": "5%",
+  "exercises": "5%",
+  "assignment": "0%",
+  "reports": "0%",
+  "midterm": "30%",
+  "final": "70%",
+  "wave": "2021-20231",
+  "status": "Teaching"
+}
+
+### 
+GET http://localhost:5000/api/course/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGMxYzRjMzJkMTM3YjU3ODQ4ODlmNWUiLCJyb2xlIjoiU3RhZmYiLCJpZCI6IiIsImlhdCI6MTYyMzQxMDY5M30.w2qC9-lP-j2FMA4_qo5x-qcHUsCDCjU4Uho4Ih-svvw
+
+### 
+GET http://localhost:5000/api/course/getStudentCourse
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGMxYmRiNzBjM2FlNTJmMmNmYzkzZTIiLCJyb2xlIjoiU3R1ZGVudCIsImlkIjoiQkk5LTE1NyIsImlhdCI6MTYyNTY0NTMyNn0.86YIWBoA_dll32ulC1hnAv5pK35gBxDK9t5TXgTOUXU
+
+### 
+GET http://localhost:5000/api/course/getCourse
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGMxZDJlM2RmNGUxNzJmOWNlNGE2M2YiLCJyb2xlIjoiTGVjdHVyZXIiLCJpZCI6IkwtMDMiLCJpYXQiOjE2MjM1Njc0NjZ9.owaByDFUwxzwDU6KcgW-DrG3XuMEGE-mRm0logrPZZo
+
+### 
+GET http://localhost:5000/api/course/export/2021-2022/MATH 3.41
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGMxZDJlM2RmNGUxNzJmOWNlNGE2M2YiLCJyb2xlIjoiTGVjdHVyZXIiLCJpZCI6IkwtMDMiLCJpYXQiOjE2MjM1Njc0NjZ9.owaByDFUwxzwDU6KcgW-DrG3XuMEGE-mRm0logrPZZo
+
+
+### 
+GET http://localhost:5000/api/course/60cf0b213bf7431560a3ddcb
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGMxZDJlM2RmNGUxNzJmOWNlNGE2M2YiLCJyb2xlIjoiTGVjdHVyZXIiLCJpZCI6IkwtMDMiLCJpYXQiOjE2MjM1Njc0NjZ9.owaByDFUwxzwDU6KcgW-DrG3XuMEGE-mRm0logrPZZo
+
+### 
+GET http://localhost:5000/api/course/1st Year/Bachelor/2021-2022
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGMxZDJlM2RmNGUxNzJmOWNlNGE2M2YiLCJyb2xlIjoiTGVjdHVyZXIiLCJpZCI6IkwtMDMiLCJpYXQiOjE2MjM1Njc0NjZ9.owaByDFUwxzwDU6KcgW-DrG3XuMEGE-mRm0logrPZZo
+
+### 
+GET http://localhost:5000/api/course/2nd Year/Bachelor/2021-2022/ICT/Analysis & Algebric Structure
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGMxZDJlM2RmNGUxNzJmOWNlNGE2M2YiLCJyb2xlIjoiTGVjdHVyZXIiLCJpZCI6IkwtMDMiLCJpYXQiOjE2MjM1Njc0NjZ9.owaByDFUwxzwDU6KcgW-DrG3XuMEGE-mRm0logrPZZo
+
+### 
+GET http://localhost:5000/api/course/2nd Year/ICT
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGMxZDJlM2RmNGUxNzJmOWNlNGE2M2YiLCJyb2xlIjoiTGVjdHVyZXIiLCJpZCI6IkwtMDMiLCJpYXQiOjE2MjM1Njc0NjZ9.owaByDFUwxzwDU6KcgW-DrG3XuMEGE-mRm0logrPZZo
+
+
+###
+PUT http://localhost:5000/api/course/60d0267418a0d62be4c7ae73
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGMxZDJlM2RmNGUxNzJmOWNlNGE2M2YiLCJyb2xlIjoiTGVjdHVyZXIiLCJpZCI6IkwtMDMiLCJkZXBhcnRtZW50IjoiSUNUIiwiaWF0IjoxNjIzNjM5MTAyfQ.yQOBBftarFbKyKFgr8cd_lPhzwItmaZqCPl3Nd2CCiY
+
+{
+  "courseCode": "MATH 2.1",
+  "courseName": "Analysis & Algebric Structure",
+  "lecturerID": "L-03",
   "lecturerName": "Doan Nhat Quang",
   "year": "2nd Year",
   "program": "Bachelor",
   "department":"ICT",
   "creditPoints": "3 ECTS",
-      "timeCommiment": {
-          "noofHours": "36",
-          "lecture": "20",
-          "tutorial": "16",
-          "practical": "0"
-      },
-  "evaluation":{
-      "attendance": "5%",
-      "exercises": "5%",
-      "assignment": "0%",
-      "reports": "0%",
-      "midterm": "30%",
-      "final": "70%"
-    }
+  "timeCommitment": "36",
+  "lecture": "20",
+  "tutorial": "16",
+  "practical": "0",
+  "attendance": "5%",
+  "exercises": "5%",
+  "assignment": "0%",
+  "reports": "0%",
+  "midterm": "30%",
+  "final": "70%",
+  "wave": "2021-2022",
+  "status": "Teaching",
+  "studentList":[{
+      "studentID" : "BI9-157",
+      "studentName" : "Tran Thanh Long",
+      "dateOfBirth" : "19/10/2000"
+  },
+  {   
+      "studentID" : "BI9-108",
+      "studentName" : "Nguyen Minh Hoang",
+      "dateOfBirth" : "19/10/2000"
+  },
+  {   
+      "studentID" : "BI9-108",
+      "studentName" : "Nguyen Minh Hoang",
+      "dateOfBirth" : "19/10/2000"
+  }
+  ]
 }
 
-### 
-GET http://localhost:5000/api/course
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDliNzU5NmNjMDY1ZTUxNzQ4MzBiNTYiLCJpYXQiOjE2MjA5NjQ4Nzd9.VsRPLY0baRMgZIbADIw8ip5UfXIGsCee4zAEfMxAB7E
-
 ###
-PUT http://localhost:5000/api/course/60a6a9576bfdb562a467a083
+PUT http://localhost:5000/api/course/updateStudentList/60d0267418a0d62be4c7ae73
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDliNzU5NmNjMDY1ZTUxNzQ4MzBiNTYiLCJpYXQiOjE2MjA5NjQ4Nzd9.VsRPLY0baRMgZIbADIw8ip5UfXIGsCee4zAEfMxAB7E
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGMxZDJlM2RmNGUxNzJmOWNlNGE2M2YiLCJyb2xlIjoiTGVjdHVyZXIiLCJpZCI6IkwtMDMiLCJkZXBhcnRtZW50IjoiSUNUIiwiaWF0IjoxNjIzNjM5MTAyfQ.yQOBBftarFbKyKFgr8cd_lPhzwItmaZqCPl3Nd2CCiY
 
 {
-  "courseCode": "MATH 2.2",
-  "courseName": "ANALYSIS& ALGEBRAIC STRUCTURES",
-  "lecturerID": "L-01",
-  "lecturerName": "Tran Thanh Long dzai",
-  "year": "2nd Year",
-  "program": "Bachelor",
-  "department":"ICT",
-  "creditPoints": "3 ECTS",
-      "timeCommiment": {
-          "noofHours": "36",
-          "lecture": "20",
-          "tutorial": "16",
-          "practical": "0"
-      },
-  "evaluation":{
-      "attendance": "5%",
-      "exercises": "5%",
-      "assignment": "0%",
-      "reports": "0%",
-      "midterm": "30%",
-      "final": "70%"
+  "studentList":
+  [
+    {
+      "studentID" : "BI9-155",
+      "studentName" : "Tran Thanh Long",
+      "dateOfBirth" : "19/10/2000"
+    },
+    {   
+      "studentID" : "BI9-108",
+      "studentName" : "Nguyen Minh Hoang",
+      "dateOfBirth" : "19/10/2000"
+    },
+    {   
+      "studentID" : "BI9-148",
+      "studentName" : "Nguyen Minh Hoang",
+      "dateOfBirth" : "19/10/2000"
+    },
+    {   
+      "studentID" : "BI9-148",
+      "studentName" : "Nguyen Minh Hoang",
+      "dateOfBirth" : "19/10/2000"
     }
+  ]
 }
 
 ###
-DELETE http://localhost:5000/api/course/60a72c008c52861fe894cf98
+DELETE http://localhost:5000/api/course/60c34fa1bb7bd03cb84ea581
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDliNzU5NmNjMDY1ZTUxNzQ4MzBiNTYiLCJpYXQiOjE2MjA5NjQ4Nzd9.VsRPLY0baRMgZIbADIw8ip5UfXIGsCee4zAEfMxAB7E

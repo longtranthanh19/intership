@@ -9,15 +9,10 @@ import Tooltip from "react-bootstrap/Tooltip";
 import Form from "react-bootstrap/Form";
 import FormControl from "react-bootstrap/FormControl";
 
-const UserList = ({ SingleUser, setShowAddUserModal, users }) => {
+const UserList = ({ SingleUser, setShowAddUserModal, users, userRole }) => {
   // Search
   const [searchText, setSearchText] = useState("");
   const [data, setData] = useState(users);
-
-  useEffect(() => {
-    console.log(users);
-  }, [users]);
-
   const handleChange = (value) => {
     setSearchText(value);
     filterData(value);
@@ -45,6 +40,11 @@ const UserList = ({ SingleUser, setShowAddUserModal, users }) => {
       >
         USTH USER
       </h1>
+      <div>
+        <p style={{ fontWeight: 550 }}>
+          Role: <span style={{ fontWeight: 350 }}> {userRole}</span>
+        </p>
+      </div>
       <Form className="search-box d-flex justify-content-end">
         <FormControl
           type="search"
@@ -54,16 +54,15 @@ const UserList = ({ SingleUser, setShowAddUserModal, users }) => {
           value={searchText}
           onChange={(e) => handleChange(e.target.value)}
         />
-        <Button variant="outline-success">Search</Button>
       </Form>
 
       <Row className="row-cols-1 row-cols-md-3 g-4 mx-auto mt-3">
-        {data.map((user) => (
+        {data?.map((user) => (
           <Col key={user._id} className="my-2">
             <SingleUser user={user} />
           </Col>
         ))}
-        {data.length === 0 && (
+        {data?.length === 0 && (
           <h4 className="d-flex justify-content-around">
             No User Found To Display!
           </h4>
