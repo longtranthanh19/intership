@@ -126,6 +126,33 @@ const UpdateCourseStudentModal = () => {
           </Form.Group>
 
           <Form.Group>
+            <Form.Text id="title-help" >
+              Department *
+            </Form.Text>
+            <Form.Control
+              as="select"
+              value={department}
+              name="department"
+              required
+              onChange={onChangeUpdatedCourseStudentForm}
+            >
+              <option value="Department" muted>
+                Department
+              </option>
+              <option value="ICT">ICT</option>
+              <option value="PMAB">PMAB</option>
+              <option value="NANO">NANO</option>
+              <option value="WEO">WEO</option>
+              <option value="MST">MST</option>
+              <option value="CS">CS</option>
+              <option value="CHEM">CHEM</option>
+              <option value="FST">FST</option>
+              <option value="AMSN">AMSN</option>
+              <option value="EER">EER</option>
+            </Form.Control>
+          </Form.Group>
+          
+          <Form.Group>
             <Form.Text id="title-help" muted>
               Year
             </Form.Text>
@@ -166,34 +193,6 @@ const UpdateCourseStudentModal = () => {
               <option value="Bachelor">Bachelor</option>
               <option value="Master">Master</option>
               <option value="PhD">PhD</option>
-            </Form.Control>
-          </Form.Group>
-
-          <Form.Group>
-            <Form.Text id="title-help" muted>
-              Department *
-            </Form.Text>
-            <Form.Control
-              as="select"
-              value={department}
-              name="department"
-              required
-              disabled
-              onChange={onChangeUpdatedCourseStudentForm}
-            >
-              <option value="Department" muted>
-                Department
-              </option>
-              <option value="ICT">ICT</option>
-              <option value="PMAB">PMAB</option>
-              <option value="NANO">NANO</option>
-              <option value="WEO">WEO</option>
-              <option value="MST">MST</option>
-              <option value="CS">CS</option>
-              <option value="CHEM">CHEM</option>
-              <option value="FST">FST</option>
-              <option value="AMSN">AMSN</option>
-              <option value="EER">EER</option>
             </Form.Control>
           </Form.Group>
 

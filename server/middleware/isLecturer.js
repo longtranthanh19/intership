@@ -13,7 +13,6 @@ const isLecturer = (req, res, next) => {
     const decoded = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
 
     req.role = decoded.role;
-    console.log(req.role)
     if (req.role === "Lecturer") {
       next();
     } else {

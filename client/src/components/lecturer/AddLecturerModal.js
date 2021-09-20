@@ -90,7 +90,6 @@ const AddLecturerModal = () => {
             </Form.Text>
             <Form.Control
               type="text"
-              placeholder="BI9-157"
               name="lecturerID"
               required
               aria-describedby="title-help"
@@ -105,7 +104,6 @@ const AddLecturerModal = () => {
             </Form.Text>
             <Form.Control
               type="text"
-              placeholder="Nguyen Van A"
               name="lecturerName"
               required
               aria-describedby="title-help"
@@ -121,7 +119,6 @@ const AddLecturerModal = () => {
             <Form.Control
               type="tel"
               pattern="[0-9]{3}[0-9]{3}[0-9]{4}"
-              placeholder="0912345678"
               name="phoneNumber"
               required
               aria-describedby="title-help"
@@ -155,7 +152,6 @@ const AddLecturerModal = () => {
             </Form.Text>
             <Form.Control
               type="date"
-              placeholder="Date Of Birth *"
               name="dateOfBirth"
               required
               aria-describedby="title-help"
@@ -190,7 +186,6 @@ const AddLecturerModal = () => {
             </Form.Text>
             <Form.Control
               type="email"
-              placeholder="abc@gmail.com"
               name="email"
               required
               aria-describedby="title-help"
@@ -205,7 +200,6 @@ const AddLecturerModal = () => {
             </Form.Text>
             <Form.Control
               type="text"
-              placeholder="18B Hoang Quoc Viet"
               name="address"
               required
               aria-describedby="title-help"
@@ -219,7 +213,6 @@ const AddLecturerModal = () => {
             </Form.Text>
             <Form.Control
               as="select"
-              placeholder="Department"
               value={department}
               name="department"
               required

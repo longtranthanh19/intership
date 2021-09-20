@@ -2,9 +2,11 @@ import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { useContext, useState } from "react";
+import { useHistory } from "react-router-dom";
 import { CourseContext } from "../../../contexts/CourseContext";
 
 const AddCourseModal = () => {
+  let history = useHistory();
   // Contexts
   const {
     showAddCourseModal,
@@ -22,17 +24,17 @@ const AddCourseModal = () => {
     year: "",
     program: "",
     department: "",
-    creditPoints: "ECTS",
-    timeCommitment: "Hours",
-    lecture: "Hours",
-    tutorial: "Hours",
-    practical: "Hours",
-    attendance: "%",
-    exercises: "%",
-    assignment: "%",
-    reports: "%",
-    midterm: "%",
-    final: "%",
+    creditPoints: "",
+    timeCommitment: "",
+    lecture: "",
+    tutorial: "",
+    practical: "",
+    attendance: "",
+    exercises: "",
+    assignment: "",
+    reports: "",
+    midterm: "",
+    final: "",
     wave: "",
     status: "",
   });
@@ -76,8 +78,9 @@ const AddCourseModal = () => {
       type: success ? "success" : "danger",
     });
     if (success) {
+      setShowAddCourseModal(false);
       setTimeout(() => {
-        window.location.reload();
+        history.push(`/course/${year}/${program}/${wave}/${department}/${courseName}`);
       }, 1000);
     }
   };
@@ -408,7 +411,6 @@ const AddCourseModal = () => {
               <option value="Finished">Finished</option>
             </Form.Control>
           </Form.Group>
-          
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={closeDialog}>

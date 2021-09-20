@@ -39,12 +39,13 @@ const CourseExport = (props) => {
       filename: `${course.courseName}-${course.wave}-${id}.pdf`,
       image: { type: "jpeg", quality: 1 },
       html2canvas: {
+        margin: 1,
         useCORS: true,
         letterRendering: true,
         scale: 3,
-        height: ht,
       },
-      jsPDF: { unit: "pt", format: "A4", orientation: "portrait" },
+      pagebreak: { mode: ["avoid-all", "css", "legacy"] },
+      jsPDF: { unit: "in", format: "letter", orientation: "portrait" },
     });
   };
 

@@ -207,18 +207,20 @@ const NavBarMenu = () => {
 
               <Nav.Link
                 className="font-weight-bolder text-black"
-                to="/student"
-                as={Link}
-              >
-                Student
-              </Nav.Link>
-              <Nav.Link
-                className="font-weight-bolder text-black"
                 to="/resultstudent"
                 as={Link}
               >
                 Result
               </Nav.Link>
+
+              <Nav.Link
+                className="font-weight-bolder text-black"
+                to="/student"
+                as={Link}
+              >
+                Student
+              </Nav.Link>
+              
               <Nav.Link
                 className="font-weight-bolder text-black"
                 to="/lecturer"

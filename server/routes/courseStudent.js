@@ -23,26 +23,20 @@ router.get("/", verifyToken, async (req, res) => {
 // @desc Get Course Profile By Year, Department, Wave
 // @access Private
 
-router.get(
-  "/:wave/:courseCode",
-  verifyToken,
-  async (req, res) => {
-    const wave = req.params.wave;
-    const courseCode = req.params.courseCode;
-    try {
-      const students = await CourseStudent.find({
-        wave: wave,
-        courseCode: courseCode,
-      });
-      res.json({ success: true, students });
-    } catch (error) {
-      console.log(error);
-      res
-        .status(500)
-        .json({ success: false, message: "Internal server error" });
-    }
+router.get("/:wave/:courseCode", verifyToken, async (req, res) => {
+  const wave = req.params.wave;
+  const courseCode = req.params.courseCode;
+  try {
+    const students = await CourseStudent.find({
+      wave: wave,
+      courseCode: courseCode,
+    });
+    res.json({ success: true, students });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ success: false, message: "Internal server error" });
   }
-);
+});
 
 // @route GET api/course
 // @desc Get Course Profile By Year, Department, Wave
@@ -111,19 +105,6 @@ router.post("/", verifyToken, async (req, res) => {
       .json({ success: false, message: "CourseCode is required" });
 
   try {
-    const sid = await CourseStudent.findOne({ studentID });
-    const id = await CourseStudent.findOne({ courseCode });
-    const courseWave = await CourseStudent.findOne({ wave });
-    const courseYear = await CourseStudent.findOne({ year });
-
-    if (sid && id && courseWave && courseYear)
-      return res
-        .status(400)
-        .json({
-          success: false,
-          message: `Student already have in this course`,
-        });
-
     const newStudentCourse = new CourseStudent({
       courseCode,
       courseName,

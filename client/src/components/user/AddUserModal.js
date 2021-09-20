@@ -73,7 +73,6 @@ const AddUserModal = () => {
             </Form.Text>
             <Form.Control
               type="text"
-              placeholder="Enter User ID"
               name="id"
               required
               aria-describedby="title-help"
@@ -88,7 +87,6 @@ const AddUserModal = () => {
             </Form.Text>
             <Form.Control
               type="text"
-              placeholder="Enter Username"
               name="username"
               required
               aria-describedby="title-help"
@@ -103,7 +101,6 @@ const AddUserModal = () => {
             </Form.Text>
             <Form.Control
               type={showPassword ? "text" : "password"}
-              placeholder="Enter Password"
               name="password"
               required
               aria-describedby="title-help"
@@ -123,7 +120,6 @@ const AddUserModal = () => {
             </Form.Text>
             <Form.Control
               type="text"
-              placeholder="Enter User Full Name"
               name="userName"
               required
               aria-describedby="title-help"
@@ -159,7 +155,6 @@ const AddUserModal = () => {
           <Button
             variant="primary"
             type="submit"
-            // onClick={() => window.location.reload()}
           >
             Add User
           </Button>

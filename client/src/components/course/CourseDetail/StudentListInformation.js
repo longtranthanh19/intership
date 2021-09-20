@@ -11,7 +11,7 @@ import ActionButtons from "../../coursestudents/ActionButtons/ActionButtons";
 import { AuthContext } from "../../../contexts/AuthContext";
 import { resultReducer } from "../../../reducers/resultReducer";
 const StudentListInformation = ({ students }) => {
-  console.log(students);
+
   // Contexts
   const {
     authState: {

@@ -57,8 +57,6 @@ const CourseDetail = (props) => {
     getCourseStudents(year, program, wave, courseName);
   }, []);
 
-  console.log(students);
-
   const download = (id, ht) => {
     const source = document.getElementById(id);
     console.log(source);
@@ -189,6 +187,46 @@ const CourseDetail = (props) => {
         </div>
       </>
     );
+  } else if (role === "Student") {
+    body = (
+      <>
+        <h2
+          className="main-title d-flex justify-content-around"
+          style={{ padding: "10px" }}
+        >
+          USTH COURSES
+        </h2>
+        <div id="Course Detail">
+          <Container>
+            <h3
+              className="d-flex justify-content-around"
+              style={{ padding: "10px" }}
+            >
+              Course Detail
+            </h3>
+            <div>
+              <p style={{ fontWeight: 550 }}>
+                Department:{" "}
+                <span style={{ fontWeight: 350 }}>{department}</span>
+              </p>
+              <p style={{ fontWeight: 550 }}>
+                Wave: <span style={{ fontWeight: 350 }}>{wave}</span>
+              </p>
+            </div>
+            <Container>
+              <Row>
+                <Col xs={6} md={4}>
+                  <CourseBasicInformation course={course} />
+                </Col>
+                <Col xs={12} md={8}>
+                  <StudentListInformation students={students} />
+                </Col>
+              </Row>
+            </Container>
+          </Container>
+        </div>
+      </>
+    );
   } else {
     body = (
       <>
@@ -209,11 +247,6 @@ const CourseDetail = (props) => {
             <div style={{ paddingBottom: "10px" }}>
               <Container>
                 <Row>
-                  <Col>
-                    <p style={{ fontWeight: 550 }}>
-                      Wave: <span style={{ fontWeight: 350 }}>{wave}</span>
-                    </p>
-                  </Col>
                   <Col className="d-flex justify-content-end">
                     <div style={{ paddingRight: "10px" }}>
                       <Button>

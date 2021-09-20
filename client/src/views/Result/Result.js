@@ -76,7 +76,6 @@ const Lecturer = () => {
             <img src={addIcon} alt="add-post" width="60" height="60" />
           </Button>
         </OverlayTrigger>
-        ;
       </>
     );
   }

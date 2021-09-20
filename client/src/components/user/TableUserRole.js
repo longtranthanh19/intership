@@ -14,7 +14,7 @@ const TableUserRole = () => {
         <thead>
           <tr>
             <th colSpan="4" style={{ textAlign: "center" }}>
-              <h4 style={{ fontWeight: "700" }}>User Categories</h4>
+              <h3 style={{ fontWeight: "700" }}>User Categories</h3>
             </th>
           </tr>
         </thead>
@@ -22,21 +22,21 @@ const TableUserRole = () => {
           <tr>
             <td colSpan="4" style={{ textAlign: "center" }}>
               <Link to="/user/Student" style={{ textDecoration: "none" }} onClick={refreshPage}>
-                Student
+                STUDENT
               </Link>
             </td>
           </tr>
           <tr>
             <td colSpan="4" style={{ textAlign: "center" }}>
               <Link to="/user/Lecturer" style={{ textDecoration: "none" }} onClick={refreshPage}>
-                Lecturer
+                LECTURER
               </Link>
             </td>
           </tr>
           <tr>
             <td colSpan="4" style={{ textAlign: "center" }}>
               <Link to="/user/Staff" style={{ textDecoration: "none" }} onClick={refreshPage}>
-                Staff
+                STAFF
               </Link>
             </td>
           </tr>

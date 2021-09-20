@@ -84,7 +84,6 @@ const UpdateCourseModal = () => {
             </Form.Text>
             <Form.Control
               type="text"
-              placeholder="BI9-157"
               name="courseCode"
               // required
               aria-describedby="title-help"
@@ -98,7 +97,6 @@ const UpdateCourseModal = () => {
             </Form.Text>
             <Form.Control
               type="text"
-              placeholder="Linear Algebra"
               name="courseName"
               required
               aria-describedby="title-help"
@@ -112,7 +110,6 @@ const UpdateCourseModal = () => {
             </Form.Text>
             <Form.Control
               type="text"
-              placeholder="L-03"
               name="lecturerID"
               required
               aria-describedby="title-help"
@@ -126,7 +123,6 @@ const UpdateCourseModal = () => {
             </Form.Text>
             <Form.Control
               type="text"
-              placeholder="Doan Nhat Quang"
               name="lecturerName"
               required
               aria-describedby="title-help"
@@ -181,7 +177,6 @@ const UpdateCourseModal = () => {
             </Form.Text>
             <Form.Control
               as="select"
-              placeholder="Department"
               value={department}
               name="department"
               required
@@ -208,7 +203,6 @@ const UpdateCourseModal = () => {
             </Form.Text>
             <Form.Control
               type="text"
-              placeholder="4 ETC"
               name="creditPoints"
               required
               aria-describedby="title-help"
@@ -222,7 +216,6 @@ const UpdateCourseModal = () => {
             </Form.Text>
             <Form.Control
               type="text"
-              placeholder="20 hours"
               name="timeCommitment"
               required
               aria-describedby="title-help"
@@ -236,7 +229,6 @@ const UpdateCourseModal = () => {
             </Form.Text>
             <Form.Control
               type="text"
-              placeholder="10 hours"
               name="lecture"
               aria-describedby="title-help"
               value={lecture}
@@ -249,7 +241,6 @@ const UpdateCourseModal = () => {
             </Form.Text>
             <Form.Control
               type="text"
-              placeholder="2 hours"
               name="tutorial"
               required
               aria-describedby="title-help"
@@ -263,7 +254,6 @@ const UpdateCourseModal = () => {
             </Form.Text>
             <Form.Control
               type="text"
-              placeholder="2 hours"
               name="practical"
               required
               aria-describedby="title-help"
@@ -280,7 +270,6 @@ const UpdateCourseModal = () => {
             </Form.Text>
             <Form.Control
               type="text"
-              placeholder="10%"
               name="attendance"
               aria-describedby="title-help"
               value={attendance}
@@ -293,7 +282,6 @@ const UpdateCourseModal = () => {
             </Form.Text>
             <Form.Control
               type="text"
-              placeholder="10%"
               name="exercises"
               aria-describedby="title-help"
               value={exercises}
@@ -306,7 +294,6 @@ const UpdateCourseModal = () => {
             </Form.Text>
             <Form.Control
               type="text"
-              placeholder="20%"
               name="assignment"
               aria-describedby="title-help"
               value={assignment}
@@ -319,7 +306,6 @@ const UpdateCourseModal = () => {
             </Form.Text>
             <Form.Control
               type="text"
-              placeholder="20%"
               name="reports"
               aria-describedby="title-help"
               value={reports}
@@ -332,7 +318,6 @@ const UpdateCourseModal = () => {
             </Form.Text>
             <Form.Control
               type="text"
-              placeholder="50%"
               name="midterm"
               aria-describedby="title-help"
               value={midterm}
@@ -346,7 +331,6 @@ const UpdateCourseModal = () => {
             </Form.Text>
             <Form.Control
               type="text"
-              placeholder="50%"
               name="final"
               aria-describedby="title-help"
               value={final}
@@ -360,7 +344,6 @@ const UpdateCourseModal = () => {
             </Form.Text>
             <Form.Control
               type="text"
-              placeholder="50%"
               name="wave"
               aria-describedby="title-help"
               required

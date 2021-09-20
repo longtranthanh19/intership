@@ -3,8 +3,10 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { useContext, useState } from "react";
 import { ResultContext } from "../../contexts/ResultContext";
+import { useHistory } from "react-router-dom";
 
 const AddResultModal = () => {
+  let history = useHistory();
   // Contexts
   const {
     showAddResultModal,
@@ -85,7 +87,10 @@ const AddResultModal = () => {
 
     if (success) {
       setTimeout(() => {
-        window.location.reload();
+        // window.location.reload();
+        history.push(
+          `/result/${year}/${levelOfTraining}/${wave}/${major}/${courseName}`
+        );
       }, 2000);
     }
   };

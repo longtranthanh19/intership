@@ -91,6 +91,7 @@ const CourseDepartment = (props) => {
                 >
                   <Link
                     to={`/course/${year}/${program}/${wave}/${department}/${course.courseName}`}
+                    style={{textDecoration:"none"}}
                   >
                     {course.courseName}
                   </Link>
@@ -109,18 +110,32 @@ const CourseDepartment = (props) => {
   } else if (program === "Bachelor") {
     body = (
       <div>
-        <h2
+        <h1
           className="main-title d-flex justify-content-around"
           style={{ padding: "10px" }}
         >
-          {year} of {program} Program
-        </h2>
-        <h2
+          USTH COURSES
+        </h1>
+        <div>
+          <p style={{ fontWeight: 550 }}>
+            Program:{" "}
+            <span style={{ fontWeight: 350 }}>
+              {program} {year}
+            </span>
+          </p>
+          <p style={{ fontWeight: 550 }}>
+            Wave: <span style={{ fontWeight: 350 }}>{wave}</span>
+          </p>
+          <p style={{ fontWeight: 550 }}>
+            Department: <span style={{ fontWeight: 350 }}>{department}</span>
+          </p>
+        </div>
+        <h3
           className="main-title d-flex justify-content-around"
-          style={{ padding: "10px" }}
+          style={{ paddingBottom: "20px" }}
         >
-          {department} COURSES
-        </h2>
+        COURSES CATEGORIES
+        </h3>
         <Table bordered hover>
           <tbody>
             {courses.map((course) => (
@@ -131,6 +146,7 @@ const CourseDepartment = (props) => {
                 >
                   <Link
                     to={`/course/${year}/${program}/${wave}/${department}/${course.courseName}`}
+                    style={{textDecoration:"none"}}
                   >
                     {course.courseName}
                   </Link>

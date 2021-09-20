@@ -84,7 +84,7 @@ const CourseBasicInformation = ({
           </Card.Text>
           <Card.Text>
             <span className="main-content-title">Credit Point: </span>
-            {creditPoints}
+            {creditPoints} ECTS
           </Card.Text>
           <Card.Text>
             <span className="main-content-title d-flex justify-content-center">
@@ -93,19 +93,19 @@ const CourseBasicInformation = ({
           </Card.Text>
           <Card.Text>
             <span className="main-content-title">Time Commitment: </span>
-            {timeCommitment}
+            {timeCommitment} Hour
           </Card.Text>
           <Card.Text>
             <span className="main-content-title">Lecture: </span>
-            {lecture}
+            {lecture} Hour
           </Card.Text>
           <Card.Text>
             <span className="main-content-title">Tutorial: </span>
-            {tutorial}
+            {tutorial} Hour
           </Card.Text>
           <Card.Text>
             <span className="main-content-title">Practical: </span>
-            {practical}
+            {practical} Hour
           </Card.Text>
           <Card.Text>
             <span className="main-content-title d-flex justify-content-center">
@@ -114,27 +114,27 @@ const CourseBasicInformation = ({
           </Card.Text>
           <Card.Text>
             <span className="main-content-title">Attendance: </span>
-            {attendance}
+            {attendance}%
           </Card.Text>
           <Card.Text>
             <span className="main-content-title">Exercises: </span>
-            {exercises}
+            {exercises}%
           </Card.Text>
           <Card.Text>
             <span className="main-content-title">Assignment: </span>
-            {assignment}
+            {assignment}%
           </Card.Text>
           <Card.Text>
             <span className="main-content-title">Report: </span>
-            {reports}
+            {reports}%
           </Card.Text>
           <Card.Text>
             <span className="main-content-title">Midterm: </span>
-            {midterm}
+            {midterm}%
           </Card.Text>
           <Card.Text>
             <span className="main-content-title">Final: </span>
-            {final}
+            {final}%
           </Card.Text>
         </Card.Body>
       </Card>
@@ -178,7 +178,7 @@ const CourseBasicInformation = ({
           </Card.Text>
           <Card.Text>
             <span className="main-content-title">Credit Point: </span>
-            {creditPoints}
+            {creditPoints} ECTS
           </Card.Text>
           <Card.Text>
             <span className="main-content-title d-flex justify-content-center">
@@ -187,19 +187,19 @@ const CourseBasicInformation = ({
           </Card.Text>
           <Card.Text>
             <span className="main-content-title">Time Commitment: </span>
-            {timeCommitment}
+            {timeCommitment} Hour
           </Card.Text>
           <Card.Text>
             <span className="main-content-title">Lecture: </span>
-            {lecture}
+            {lecture} Hour
           </Card.Text>
           <Card.Text>
             <span className="main-content-title">Tutorial: </span>
-            {tutorial}
+            {tutorial} Hour
           </Card.Text>
           <Card.Text>
             <span className="main-content-title">Practical: </span>
-            {practical}
+            {practical} Hour
           </Card.Text>
           <Card.Text>
             <span className="main-content-title d-flex justify-content-center">
@@ -208,27 +208,27 @@ const CourseBasicInformation = ({
           </Card.Text>
           <Card.Text>
             <span className="main-content-title">Attendance: </span>
-            {attendance}
+            {attendance}%
           </Card.Text>
           <Card.Text>
             <span className="main-content-title">Exercises: </span>
-            {exercises}
+            {exercises}%
           </Card.Text>
           <Card.Text>
             <span className="main-content-title">Assignment: </span>
-            {assignment}
+            {assignment}%
           </Card.Text>
           <Card.Text>
             <span className="main-content-title">Report: </span>
-            {reports}
+            {reports}%
           </Card.Text>
           <Card.Text>
             <span className="main-content-title">Midterm: </span>
-            {midterm}
+            {midterm}%
           </Card.Text>
           <Card.Text>
             <span className="main-content-title">Final: </span>
-            {final}
+            {final}%
           </Card.Text>
         </Card.Body>
       </Card>

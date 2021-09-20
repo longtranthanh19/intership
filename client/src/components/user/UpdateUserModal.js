@@ -66,7 +66,6 @@ const UpdateUserModal = () => {
             </Form.Text>
             <Form.Control
               type="text"
-              placeholder="Change username"
               name="id"
               required
               aria-describedby="title-help"
@@ -81,7 +80,6 @@ const UpdateUserModal = () => {
             </Form.Text>
             <Form.Control
               type="text"
-              placeholder="Change username"
               name="username"
               required
               aria-describedby="title-help"
@@ -96,7 +94,6 @@ const UpdateUserModal = () => {
             </Form.Text>
             <Form.Control
               type={showPassword ? "text" : "password"}
-              placeholder="Change Password"
               name="password"
               required
               aria-describedby="title-help"
@@ -116,7 +113,6 @@ const UpdateUserModal = () => {
             </Form.Text>
             <Form.Control
               type="text"
-              placeholder="Change User Name"
               name="userName"
               required
               aria-describedby="title-help"
